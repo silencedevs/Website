@@ -29,17 +29,42 @@ document.addEventListener('click', event => {
 document.documentElement.classList.add('js');
 
 for (const menu of document.querySelectorAll('.studio-mobile-menu')) {
-  menu.addEventListener('click', (event) => {
-    if (event.target.closest('a,[data-action-url]')) menu.open = false;
-  });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && menu.open) {
+  const summary = menu.querySelector('summary');
+  let closing = false;
+  const closeMenu = (refocus = false) => {
+    if (!menu.open || closing) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
       menu.open = false;
-      menu.querySelector('summary').focus();
+      if (refocus) summary.focus();
+      return;
+    }
+    closing = true;
+    menu.classList.add('menu-closing');
+    const done = () => {
+      menu.open = false;
+      menu.classList.remove('menu-closing');
+      closing = false;
+      if (refocus) summary.focus();
+    };
+    let finished = false;
+    const finish = () => { if (finished) return; finished = true; done(); };
+    menu.addEventListener('animationend', finish, { once: true });
+    setTimeout(finish, 320);
+  };
+  summary.addEventListener('click', (event) => {
+    if (menu.open) {
+      event.preventDefault();
+      closeMenu();
     }
   });
+  menu.addEventListener('click', (event) => {
+    if (event.target.closest('a,[data-action-url]')) closeMenu();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu.open) closeMenu(true);
+  });
   document.addEventListener('click', (event) => {
-    if (menu.open && !menu.contains(event.target)) menu.open = false;
+    if (menu.open && !menu.contains(event.target)) closeMenu();
   });
 }
 

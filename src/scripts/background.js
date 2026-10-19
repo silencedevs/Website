@@ -97,11 +97,13 @@ function mount(canvas, version) {
       if(state==='running')raf=requestAnimationFrame(render);
     };
     control.onclick=()=>{if(reduced()){overrideMotion=true;paused=false;}else paused=!paused;update();};
-    const move = event=>{const rect=canvas.getBoundingClientRect();mouse.x=(event.clientX-rect.left)/rect.width;mouse.y=1-(event.clientY-rect.top)/rect.height;};
+    const move = event=>{if(event.pointerType==='touch')return;const rect=canvas.getBoundingClientRect();mouse.x=(event.clientX-rect.left)/rect.width;mouse.y=1-(event.clientY-rect.top)/rect.height;};
     const changePreference=()=>{overrideMotion=false;draw();update();};
     const lost=event=>{event.preventDefault();cancelAnimationFrame(raf);document.documentElement.dataset.background='unavailable';control.textContent='Retry background';control.title='The graphics context was lost.';status.hidden=false;status.textContent='The background graphics context was lost.';control.onclick=startBackground;};
+    const pointerResponsive = matchMedia('(hover: hover) and (pointer: fine)').matches;
     const observer=new ResizeObserver(resize);observer.observe(canvas);
-    window.addEventListener('pointermove',move,{passive:true});document.addEventListener('visibilitychange',update);preference.addEventListener('change',changePreference);canvas.addEventListener('webglcontextlost',lost);
+    if (pointerResponsive) window.addEventListener('pointermove',move,{passive:true});
+    document.addEventListener('visibilitychange',update);preference.addEventListener('change',changePreference);canvas.addEventListener('webglcontextlost',lost);
     document.documentElement.dataset.backgroundRenderer=version;
     resize();update();
     return { cleanup(){cleanupGL();observer.disconnect();window.removeEventListener('pointermove',move);document.removeEventListener('visibilitychange',update);preference.removeEventListener('change',changePreference);canvas.removeEventListener('webglcontextlost',lost);} };

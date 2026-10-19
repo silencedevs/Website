@@ -1066,16 +1066,32 @@ pre{font-size:16px}
   .studio-mobile-menu summary{display:flex;align-items:center;gap:12px;min-height:44px;padding:10px 0 10px 16px;cursor:pointer;list-style:none;font-size:16px}
   .studio-mobile-menu summary::-webkit-details-marker{display:none}
   .studio-mobile-menu summary svg{width:24px;height:24px}
-  .studio-mobile-menu nav{--slop-allow:redundant-border;position:absolute;top:calc(100% + 8px);left:0;right:0;background:rgba(10,10,12,.94);border:1px solid rgba(255,255,255,.14);padding:12px;display:grid;gap:4px;z-index:50;border-radius:24px;box-shadow:0 16px 36px #00000040}
+  .studio-mobile-menu nav{--slop-allow:redundant-border;position:absolute;top:calc(100% + 8px);left:0;right:0;background:rgba(10,10,12,.94);border:1px solid rgba(255,255,255,.14);padding:12px;display:grid;gap:4px;z-index:50;border-radius:24px;box-shadow:0 16px 36px #00000040;transform-origin:top center}
   .studio-mobile-menu:not([open]) nav{display:none}
+  .studio-mobile-menu[open] nav{animation:studio-menu-in .3s cubic-bezier(.22,.61,.36,1) both}
+  .studio-mobile-menu.menu-closing nav{display:grid;animation:studio-menu-out .3s cubic-bezier(.22,.61,.36,1) both}
+  .studio-mobile-menu[open] nav a{animation:studio-menu-item .3s cubic-bezier(.22,.61,.36,1) both}
+  .studio-mobile-menu[open] nav a:nth-child(1){animation-delay:.03s}
+  .studio-mobile-menu[open] nav a:nth-child(2){animation-delay:.06s}
+  .studio-mobile-menu[open] nav a:nth-child(3){animation-delay:.09s}
+  .studio-mobile-menu[open] nav a:nth-child(4){animation-delay:.12s}
+  .studio-mobile-menu[open] nav a:nth-child(5){animation-delay:.15s}
+  .studio-mobile-menu[open] nav a:nth-child(6){animation-delay:.18s}
+  .studio-mobile-menu[open] nav a:nth-child(7){animation-delay:.21s}
   .studio-mobile-menu nav a{padding:12px 16px;min-height:48px;border-radius:14px}
   .studio-mobile-menu nav a:hover{background:#202022}
   .studio-mobile-menu nav .studio-menu-cta{background:#8a0000;color:white;margin-top:8px}
+  .studio-mobile-menu summary svg{transition:transform .3s cubic-bezier(.22,.61,.36,1)}
+  .studio-mobile-menu[open] summary svg{transform:rotate(90deg)}
+  .studio-mobile-menu.menu-closing summary svg{transform:rotate(0deg)}
+  @keyframes studio-menu-in{from{opacity:0;transform:translateY(-10px) scale(.97)}to{opacity:1;transform:none}}
+  @keyframes studio-menu-out{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-8px) scale(.98)}}
+  @keyframes studio-menu-item{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
   .game-list{gap:20px}
   .game-tile .game-tile-content{padding:22px}
 }
 @media(max-width:650px){.game-list{grid-template-columns:1fr}.studio-header .brand{font-size:28px}.studio-header{gap:16px}}
-@media(prefers-reduced-motion:reduce){.studio-desktop-nav a,.studio-cta{transition:none}}
+@media(prefers-reduced-motion:reduce){.studio-desktop-nav a,.studio-cta{transition:none}.studio-mobile-menu[open] nav,.studio-mobile-menu.menu-closing nav,.studio-mobile-menu[open] nav a,.studio-mobile-menu summary svg{animation:none;transition:none;transform:none}}
 
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 .about-grid h2 { margin-bottom: 24px; }
