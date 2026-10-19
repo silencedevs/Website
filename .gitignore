@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.agents/
+.aws/
+.build/
+.codex/
+.compaction/
+.impeccable/
+.taste-skill/
