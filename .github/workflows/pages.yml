@@ -30,7 +30,7 @@ jobs:
       - run: npm run check
       - run: npm run build
         env:
-          SITE_URL: ${{ vars.SITE_URL || 'https://silencedevs.github.io/Website/' }}
+          SITE_URL: ${{ vars.SITE_URL || 'https://silencescripts.net/' }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
