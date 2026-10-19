@@ -1,0 +1,37 @@
+{
+  "report": [
+    {
+      "width": 1440,
+      "overflow": 0,
+      "state": "running",
+      "canvas": true,
+      "title": "Silence Scripts",
+      "images": []
+    },
+    {
+      "width": 768,
+      "overflow": 0,
+      "state": "running",
+      "canvas": true,
+      "title": "Silence Scripts",
+      "images": []
+    },
+    {
+      "width": 390,
+      "overflow": 0,
+      "state": "running",
+      "canvas": true,
+      "title": "Silence Scripts",
+      "images": []
+    },
+    {
+      "width": 320,
+      "overflow": 0,
+      "state": "running",
+      "canvas": true,
+      "title": "Silence Scripts",
+      "images": []
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,2066 @@
+{
+ "url": "http://127.0.0.1:4173/Website/",
+ "at": "2026-10-19T19:34:41.855Z",
+ "allow": [
+  "few-pictures",
+  "eyebrow"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.39,
+    0.54,
+    0.58,
+    0.63,
+    0.47
+   ],
+   "motion": {
+    "elements": 14,
+    "css": 14,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 3822,
+     "screens": 4.2,
+     "words": 282,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 5,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 3,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "silence.webp",
+      "3623096087-cover.png",
+      "75992362647444-cover.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Silence Scripts",
+     "words": 2,
+     "chars": 15,
+     "lines": 1,
+     "size": 151.2,
+     "vw": 10.5,
+     "font": "Fira Condensed",
+     "weight": 700,
+     "tracking": -0.025,
+     "leading": 1.03,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.92,
+     "top": 139,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Silence Scripts",
+     "words": 2,
+     "lines": 1,
+     "size": 151.2,
+     "font": "Fira Condensed"
+    },
+    "headings": [
+     {
+      "text": "Silence",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Fira Condensed",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.11,
+      "top": 23,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "Silence Scripts",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 151.2,
+      "vw": 10.5,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 139,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Your games. One place to begin.",
+      "words": 6,
+      "chars": 31,
+      "lines": 2,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Fira",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.34,
+      "top": 436,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "The game library",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 72,
+      "vw": 5,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 1022,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Muscle Legends",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.47,
+      "top": 1268,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Legacy Tap Simulator",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.46,
+      "top": 1552,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "One loader. Your game.",
+      "words": 4,
+      "chars": 22,
+      "lines": 2,
+      "size": 72,
+      "vw": 5,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 2063,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Before you begin",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 72,
+      "vw": 5,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 2697,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Join Discord",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 151.2,
+      "vw": 10.5,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3390,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Silence",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Fira Condensed",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.07,
+      "top": 3642,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Fira",
+       "share": 0.89,
+       "mono": false
+      },
+      {
+       "family": "Fira Condensed",
+       "share": 0.06,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.05,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      16,
+      18,
+      36,
+      72,
+      151
+     ],
+     "sizeCount": 5,
+     "notLoaded": [],
+     "body": {
+      "font": "Fira",
+      "size": 18,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.9
+     },
+     "measureChars": 65,
+     "max": {
+      "size": 151.2,
+      "vw": 10.5,
+      "font": "Fira Condensed",
+      "text": "Silence Scripts"
+     },
+     "monoShare": 0.05,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0a0a0c",
+     "bodyBgHsl": {
+      "h": 240,
+      "s": 0.09,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#151516",
+       "top": 1987,
+       "hsl": {
+        "h": 240,
+        "s": 0.02,
+        "l": 0.08
+       }
+      },
+      {
+       "color": "#df2132",
+       "top": 3266,
+       "hsl": {
+        "h": 355,
+        "s": 0.75,
+        "l": 0.5
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#b8b7b5",
+       "share": 0.7
+      },
+      {
+       "color": "#f4f4f5",
+       "share": 0.23
+      },
+      {
+       "color": "#fefffe",
+       "share": 0.03
+      },
+      {
+       "color": "#ff6b78",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#212023",
+      "hsl": {
+       "h": 260,
+       "s": 0.04,
+       "l": 0.13
+      },
+      "fg": "#f4f4f5"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 2,
+     "radius": 2,
+     "height": 49,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Join Discord",
+      "View games"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 3,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.21
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 104,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "fira",
+     "fira condensed"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 3822,
+    "margins": {
+     "left": 58,
+     "right": 58
+    },
+    "sections": [
+     {
+      "sel": "section.hero.frame",
+      "tag": "section",
+      "top": 104,
+      "height": 838,
+      "words": 41,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Silence Scripts",
+       "size": 151,
+       "tag": "h1"
+      },
+      "left": 58,
+      "right": 58,
+      "textLeft": 58,
+      "textRight": 86,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#games.section.frame",
+      "tag": "section",
+      "top": 942,
+      "height": 985,
+      "words": 82,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "The game library",
+       "size": 72,
+       "tag": "h2"
+      },
+      "left": 58,
+      "right": 58,
+      "textLeft": 58,
+      "textRight": 87,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#loader.loader-section",
+      "tag": "section",
+      "top": 1987,
+      "height": 570,
+      "words": 93,
+      "media": 0,
+      "middle": 135,
+      "heading": {
+       "text": "One loader.",
+       "size": 72,
+       "tag": "h2"
+      },
+      "left": 58,
+      "right": 82,
+      "textLeft": 58,
+      "textRight": 84,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.section.frame",
+      "tag": "section",
+      "top": 2617,
+      "height": 578,
+      "words": 105,
+      "media": 0,
+      "middle": 186,
+      "heading": {
+       "text": "Before you begin",
+       "size": 72,
+       "tag": "h2"
+      },
+      "left": 58,
+      "right": 94,
+      "textLeft": 58,
+      "textRight": 94,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "a.community",
+      "tag": "a",
+      "top": 3266,
+      "height": 323,
+      "words": 11,
+      "media": 0,
+      "middle": 574,
+      "heading": {
+       "text": "Join Discord",
+       "size": 151,
+       "tag": "h2"
+      },
+      "left": 58,
+      "right": 58,
+      "textLeft": 58,
+      "textRight": 680,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.site-footer.frame",
+      "tag": "footer",
+      "top": 3590,
+      "height": 233,
+      "words": 27,
+      "media": 0,
+      "middle": 381,
+      "heading": {
+       "text": "Silence",
+       "size": 36,
+       "tag": "a"
+      },
+      "left": 58,
+      "right": 58,
+      "textLeft": 58,
+      "textRight": 58,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Silence Scripts",
+      "size": 151,
+      "top": 139,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 58,
+      "n": 8
+     },
+     {
+      "x": 497,
+      "n": 4
+     },
+     {
+      "x": 722,
+      "n": 4
+     },
+     {
+      "x": 698,
+      "n": 1
+     },
+     {
+      "x": 952,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 18,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.08,
+    "voidBox": {
+     "x": 420,
+     "y": 600,
+     "w": 360,
+     "h": 300
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.43,
+    0.71,
+    0.63,
+    0.49
+   ],
+   "motion": {
+    "elements": 14,
+    "css": 14,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 3793,
+     "screens": 3.7,
+     "words": 282,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 5,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 3,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "silence.webp",
+      "3623096087-cover.png",
+      "75992362647444-cover.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Silence Scripts",
+     "words": 2,
+     "chars": 15,
+     "lines": 1,
+     "size": 92.2,
+     "vw": 12,
+     "font": "Fira Condensed",
+     "weight": 700,
+     "tracking": -0.025,
+     "leading": 1.03,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.92,
+     "top": 139,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Silence Scripts",
+     "words": 2,
+     "lines": 1,
+     "size": 92.2,
+     "font": "Fira Condensed"
+    },
+    "headings": [
+     {
+      "text": "Silence",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Fira Condensed",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 23,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "Silence Scripts",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 92.2,
+      "vw": 12,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 139,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Your games. One place to begin.",
+      "words": 6,
+      "chars": 31,
+      "lines": 2,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Fira",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 258,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "The game library",
+      "words": 3,
+      "chars": 16,
+      "lines": 2,
+      "size": 40,
+      "vw": 5.2,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.31,
+      "top": 849,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Muscle Legends",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.58,
+      "top": 1068,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Legacy Tap Simulator",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.58,
+      "top": 1341,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "One loader. Your game.",
+      "words": 4,
+      "chars": 22,
+      "lines": 2,
+      "size": 40,
+      "vw": 5.2,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.39,
+      "top": 1906,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Before you begin",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 40,
+      "vw": 5.2,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.39,
+      "top": 2681,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Join Discord",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 80.6,
+      "vw": 10.5,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3431,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Silence",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Fira Condensed",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.13,
+      "top": 3612,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Fira",
+       "share": 0.89,
+       "mono": false
+      },
+      {
+       "family": "Fira Condensed",
+       "share": 0.06,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.05,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      16,
+      18,
+      36,
+      40,
+      81,
+      92
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "Fira",
+      "size": 18,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.9
+     },
+     "measureChars": 49,
+     "max": {
+      "size": 92.2,
+      "vw": 12,
+      "font": "Fira Condensed",
+      "text": "Silence Scripts"
+     },
+     "monoShare": 0.05,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "View script",
+      "above": "Legacy Tap Simulator",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 18,
+      "top": 1225
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0a0a0c",
+     "bodyBgHsl": {
+      "h": 240,
+      "s": 0.09,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#151516",
+       "top": 1830,
+       "hsl": {
+        "h": 240,
+        "s": 0.02,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#b8b7b5",
+       "share": 0.7
+      },
+      {
+       "color": "#f4f4f5",
+       "share": 0.23
+      },
+      {
+       "color": "#fefffe",
+       "share": 0.03
+      },
+      {
+       "color": "#ff6b78",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#212023",
+      "hsl": {
+       "h": 260,
+       "s": 0.04,
+       "l": 0.13
+      },
+      "fg": "#f4f4f5"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 3,
+     "radius": 2,
+     "height": 49,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Join Discord",
+      "View games",
+      "All games"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.15
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 104,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "fira",
+     "fira condensed"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 3793,
+    "margins": {
+     "left": 31,
+     "right": 31
+    },
+    "sections": [
+     {
+      "sel": "section.hero.frame",
+      "tag": "section",
+      "top": 104,
+      "height": 665,
+      "words": 41,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Silence Scripts",
+       "size": 92,
+       "tag": "h1"
+      },
+      "left": 31,
+      "right": 31,
+      "textLeft": 31,
+      "textRight": 59,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#games.section.frame",
+      "tag": "section",
+      "top": 769,
+      "height": 1001,
+      "words": 82,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "The game library",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 31,
+      "textLeft": 31,
+      "textRight": 60,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#loader.loader-section",
+      "tag": "section",
+      "top": 1830,
+      "height": 711,
+      "words": 93,
+      "media": 0,
+      "middle": 80,
+      "heading": {
+       "text": "One loader.",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 38,
+      "textLeft": 31,
+      "textRight": 38,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.section.frame",
+      "tag": "section",
+      "top": 2601,
+      "height": 634,
+      "words": 84,
+      "media": 0,
+      "middle": 95,
+      "heading": {
+       "text": "Before you begin",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 61,
+      "textLeft": 31,
+      "textRight": 61,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "a.community",
+      "tag": "a",
+      "top": 3307,
+      "height": 253,
+      "words": 11,
+      "media": 0,
+      "middle": 198,
+      "heading": {
+       "text": "Join Discord",
+       "size": 81,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 31,
+      "textLeft": 31,
+      "textRight": 277,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.site-footer.frame",
+      "tag": "footer",
+      "top": 3560,
+      "height": 233,
+      "words": 27,
+      "media": 0,
+      "middle": 24,
+      "heading": {
+       "text": "Silence",
+       "size": 36,
+       "tag": "a"
+      },
+      "left": 31,
+      "right": 31,
+      "textLeft": 31,
+      "textRight": 31,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Silence Scripts",
+      "size": 92,
+      "top": 139,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 31,
+      "n": 8
+     },
+     {
+      "x": 270,
+      "n": 4
+     },
+     {
+      "x": 391,
+      "n": 4
+     },
+     {
+      "x": 307,
+      "n": 1
+     },
+     {
+      "x": 367,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 18,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.53,
+    0.66,
+    0.68,
+    0.71,
+    0.8,
+    0.63
+   ],
+   "motion": {
+    "elements": 14,
+    "css": 14,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 4597,
+     "screens": 5.4,
+     "words": 281,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 5,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 3,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "silence.webp",
+      "3623096087-cover.png",
+      "75992362647444-cover.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Silence Scripts",
+     "words": 2,
+     "chars": 15,
+     "lines": 2,
+     "size": 70.2,
+     "vw": 18,
+     "font": "Fira Condensed",
+     "weight": 700,
+     "tracking": -0.025,
+     "leading": 1,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 113,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Silence Scripts",
+     "words": 2,
+     "lines": 2,
+     "size": 70.2,
+     "font": "Fira Condensed"
+    },
+    "headings": [
+     {
+      "text": "Silence",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Fira Condensed",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.3,
+      "top": 22,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "Silence Scripts",
+      "words": 2,
+      "chars": 15,
+      "lines": 2,
+      "size": 70.2,
+      "vw": 18,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 113,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Your games. One place to begin.",
+      "words": 6,
+      "chars": 31,
+      "lines": 2,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Fira",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.8,
+      "top": 283,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "The game library",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 967,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Muscle Legends",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 1483,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Legacy Tap Simulator",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 1955,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "One loader. Your game.",
+      "words": 4,
+      "chars": 22,
+      "lines": 2,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2462,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Before you begin",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.03,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3377,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Join Discord",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 70.2,
+      "vw": 18,
+      "font": "Fira Condensed",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4107,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Silence",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Fira Condensed",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.21,
+      "top": 4249,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Fira",
+       "share": 0.89,
+       "mono": false
+      },
+      {
+       "family": "Fira Condensed",
+       "share": 0.06,
+       "mono": false
+      },
+      {
+       "family": "ui-monospace",
+       "share": 0.05,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      16,
+      28,
+      40,
+      70
+     ],
+     "sizeCount": 4,
+     "notLoaded": [],
+     "body": {
+      "font": "Fira",
+      "size": 16,
+      "leading": 1.6,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.9
+     },
+     "measureChars": 40,
+     "max": {
+      "size": 70.2,
+      "vw": 18,
+      "font": "Fira Condensed",
+      "text": "Silence Scripts"
+     },
+     "monoShare": 0.05,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "ui-monospace"
+     ],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0a0a0c",
+     "bodyBgHsl": {
+      "h": 240,
+      "s": 0.09,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#151516",
+       "top": 1269,
+       "hsl": {
+        "h": 240,
+        "s": 0.02,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#b8b7b5",
+       "share": 0.7
+      },
+      {
+       "color": "#f4f4f5",
+       "share": 0.23
+      },
+      {
+       "color": "#fefffe",
+       "share": 0.03
+      },
+      {
+       "color": "#ff6b78",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#212023",
+      "hsl": {
+       "h": 260,
+       "s": 0.04,
+       "l": 0.13
+      },
+      "fg": "#f4f4f5"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 2,
+     "radius": 2,
+     "height": 46,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Join Discord",
+      "View games"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 3,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.27
+     }
+    ],
+    "nav": {
+     "links": 3,
+     "fixed": false,
+     "height": 88,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "fira",
+     "fira condensed"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 4597,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "section.hero.frame",
+      "tag": "section",
+      "top": 88,
+      "height": 831,
+      "words": 41,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Silence Scripts",
+       "size": 70,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.section-heading.enter",
+      "tag": "div",
+      "top": 967,
+      "height": 136,
+      "words": 17,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 58,
+      "textLeft": 20,
+      "textRight": 58,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div#game-list.game-list",
+      "tag": "div",
+      "top": 1269,
+      "height": 949,
+      "words": 48,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "Muscle Legends",
+       "size": 28,
+       "tag": "h3"
+      },
+      "left": 36,
+      "right": 36,
+      "textLeft": 36,
+      "textRight": 47,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#loader.loader-section",
+      "tag": "section",
+      "top": 2414,
+      "height": 883,
+      "words": 93,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "One loader.",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 27,
+      "textLeft": 20,
+      "textRight": 27,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.section.frame",
+      "tag": "section",
+      "top": 3329,
+      "height": 619,
+      "words": 84,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Before you begin",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 61,
+      "textLeft": 20,
+      "textRight": 61,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "a.community",
+      "tag": "a",
+      "top": 3992,
+      "height": 221,
+      "words": 11,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Join Discord",
+       "size": 70,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 44,
+      "textLeft": 20,
+      "textRight": 44,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.site-footer.frame",
+      "tag": "footer",
+      "top": 4213,
+      "height": 383,
+      "words": 27,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Silence",
+       "size": 28,
+       "tag": "a"
+      },
+      "left": 20,
+      "right": 35,
+      "textLeft": 20,
+      "textRight": 35,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Silence Scripts",
+      "size": 70,
+      "top": 113,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 10
+     },
+     {
+      "x": 36,
+      "n": 8
+     }
+    ],
+    "leftBlocks": 18,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "font-count",
+   "width": 1440,
+   "message": "3 typefaces in use (Fira, Fira Condensed, ui-monospace).",
+   "fix": "Two at most.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Little motion: 14 element(s) moved while the page loaded and scrolled.",
+   "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+  },
+  {
+   "level": "WARN",
+   "id": "name-only-title",
+   "width": 390,
+   "message": "The h1 is a bare name (\"Silence Scripts\") and nothing else on the first screen says what this is.",
+   "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/henrik/Dokumente/SilenceWebseite/.taste-skill/inspect/desktop-fold.jpg",
+   "pages": [
+    "/home/henrik/Dokumente/SilenceWebseite/.taste-skill/inspect/desktop-page-01.jpg",
+    "/home/henrik/Dokumente/SilenceWebseite/.taste-skill/inspect/desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/henrik/Dokumente/SilenceWebseite/.taste-skill/inspect/tablet-fold.jpg",
+   "pages": [
+    "/home/henrik/Dokumente/SilenceWebseite/.taste-skill/inspect/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/henrik/Dokumente/SilenceWebseite/.taste-skill/inspect/mobile-fold.jpg",
+   "pages": [
+    "/home/henrik/Dokumente/SilenceWebseite/.taste-skill/inspect/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "silence-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "build": "node tools/build.mjs",
+    "refresh:games": "node tools/refresh-games.mjs",
+    "check": "tsc --noEmit && node --check tools/build.mjs && node --check tools/refresh-games.mjs && node --check src/scripts/site.js && node --check src/scripts/background.js && node --check src/scripts/background-shader.js && node --check tools/refresh-stats.mjs && node tools/site.test.mjs",
+    "check:launch": "node tools/launch-check.mjs",
+    "preview": "node tools/serve.mjs --production",
+    "refresh:stats": "node tools/refresh-stats.mjs"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.5.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "esbuild": "^0.28.2",
+    "markdown-it": "^15.0.3",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-19T20:07:46.805Z",
+  "results": [
+    "Sticky glass navbar remains visible above content at 1900px (top 16 to 16). No overflow.",
+    "Sticky glass navbar remains visible above content at 1440px (top 16 to 16). No overflow.",
+    "Sticky glass navbar remains visible above content at 960px (top 12 to 12). No overflow.",
+    "Sticky glass navbar remains visible above content at 768px (top 12 to 12). No overflow.",
+    "Sticky glass navbar remains visible above content at 390px (top 12 to 12). No overflow.",
+    "Sticky glass navbar remains visible above content at 320px (top 12 to 12). No overflow.",
+    "Hero Copy Loadstring works after hydration and copies the complete displayed loader.",
+    "Hero denied clipboard fallback selects and scrolls to the loader.",
+    "Empty projects are hidden; genuine cached counters and configured 100% uptime render.",
+    "Reduced motion has a red local shader poster without active canvas animation."
+  ]
+}

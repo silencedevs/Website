@@ -1,0 +1,16 @@
+{
+  "name": "Silence",
+  "url": "https://silencedevs.github.io/Website/",
+  "discord": "https://discord.gg/9eFf93Kg8D",
+  "repository": "https://github.com/silencedevs/SilenceScripts",
+  "loader": "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/silencedevs/SilenceScripts/main/Loader/Loader.luau\"))()",
+  "operator": {
+    "name": "",
+    "country": "",
+    "address": "",
+    "email": "",
+    "commercial": false
+  },
+  "imageRightsConfirmed": false,
+  "profile": "https://github.com/xyzhenrik"
+}

@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-19T20:02:29.093Z",
+  "engine": "Brave Chromium via CDP",
+  "results": [
+    "Real WebGL2 canvas renders and changes across captured frames.",
+    "Pause freezes actual rendered pixels; Resume restores motion.",
+    "Scrolling the hero off screen pauses it and returning resumes it.",
+    "Changing reduced motion at runtime removes the canvas and preserves visible content and links.",
+    "No overflow, broken images or titles beyond two lines at 1440, 768, 390 and 320 pixels.",
+    "Mobile menu opens using synthesized touch, closes after navigation, and Escape restores summary focus.",
+    "With JavaScript disabled, the prerendered hero, both games, CTAs and native mobile menu still work.",
+    "Simulated missing WebGL2 produces the black static fallback without hiding the title or controls.",
+    "No browser exceptions or hydration errors in the tested paths."
+  ]
+}

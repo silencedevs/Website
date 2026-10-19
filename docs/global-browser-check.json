@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-19T20:24:09.073Z",
+  "engine": "Brave Chromium via CDP",
+  "results": [
+    "Actual original shader pixels change over time at full 1440px backing width.",
+    "Pause and resume freeze and restart actual background pixels.",
+    "The original ShinyButton custom property rotates; sweep, speckle and shimmer CSS are present.",
+    "Loadstring scrolls to the loader and does not copy code.",
+    "Docked at top, floating on scroll, zero overflow at 1900, 1440, 768, 390 and 320px.",
+    "One fixed, running shader is mounted on both games, privacy, imprint, credits and the custom 404.",
+    "Reduced motion stops button animations and renders one shader frame; Play background explicitly enables it."
+  ]
+}

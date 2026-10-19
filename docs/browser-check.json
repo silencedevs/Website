@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-19T20:05:43.149Z",
+  "engine": "Brave Chromium via CDP",
+  "results": [
+    "Search by feature, both filters, no results, reset and focus restoration passed.",
+    "All four FAQ controls toggle.",
+    "Native clipboard outcome: Loader copied to clipboard.",
+    "Denied clipboard fallback selects the full loader and explains manual copying.",
+    "Keyboard first focus is the visible skip link, with a focus outline.",
+    "No horizontal overflow or broken images at 1440, 768, 390 and 320 pixels.",
+    "Both game pages render on mobile. Muscle Legends has a loader control; outdated Tap Simulator has an explicit notice and no execution instructions.",
+    "Legal and credits pages render; missing routes return HTTP 404 and the custom recovery page.",
+    "Reduced motion retains all content and has no active animations.",
+    "Without JavaScript both entries and the loader remain readable; inactive filter UI is hidden.",
+    "No browser JavaScript exceptions during the interaction path."
+  ]
+}

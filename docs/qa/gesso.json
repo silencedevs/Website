@@ -1,0 +1,141 @@
+{
+  "results": [
+    {
+      "file": "/tmp/silence-audit/404.html",
+      "pass": true,
+      "issues": [
+        "[type/overused-font-stack] [advisory] 1x: The four display faces every AI-tell list names: Inter, Space Grotesk, Geist, Instrument Serif. Fine fonts, exhausted defaults. (e.g. Inter)",
+        "[type/single-font-page] [advisory] 1x: One family carrying the entire page: no pairing, no contrast of voice between display and body. (e.g. only \"inter\" declared)"
+      ],
+      "severity": 0,
+      "counts": {
+        "byRule": {
+          "overused-font-stack": 1,
+          "single-font-page": 1
+        },
+        "total": 2,
+        "gating": 0,
+        "advisory": 2
+      },
+      "externalStylesheets": 0
+    },
+    {
+      "file": "/tmp/silence-audit/credits/index.html",
+      "pass": true,
+      "issues": [
+        "[type/overused-font-stack] [advisory] 1x: The four display faces every AI-tell list names: Inter, Space Grotesk, Geist, Instrument Serif. Fine fonts, exhausted defaults. (e.g. Inter)",
+        "[type/single-font-page] [advisory] 1x: One family carrying the entire page: no pairing, no contrast of voice between display and body. (e.g. only \"inter\" declared)"
+      ],
+      "severity": 0,
+      "counts": {
+        "byRule": {
+          "overused-font-stack": 1,
+          "single-font-page": 1
+        },
+        "total": 2,
+        "gating": 0,
+        "advisory": 2
+      },
+      "externalStylesheets": 0
+    },
+    {
+      "file": "/tmp/silence-audit/games/3623096087/index.html",
+      "pass": true,
+      "issues": [
+        "[type/overused-font-stack] [advisory] 1x: The four display faces every AI-tell list names: Inter, Space Grotesk, Geist, Instrument Serif. Fine fonts, exhausted defaults. (e.g. Inter)",
+        "[type/single-font-page] [advisory] 1x: One family carrying the entire page: no pairing, no contrast of voice between display and body. (e.g. only \"inter\" declared)"
+      ],
+      "severity": 0,
+      "counts": {
+        "byRule": {
+          "overused-font-stack": 1,
+          "single-font-page": 1
+        },
+        "total": 2,
+        "gating": 0,
+        "advisory": 2
+      },
+      "externalStylesheets": 0
+    },
+    {
+      "file": "/tmp/silence-audit/games/75992362647444/index.html",
+      "pass": true,
+      "issues": [
+        "[type/overused-font-stack] [advisory] 1x: The four display faces every AI-tell list names: Inter, Space Grotesk, Geist, Instrument Serif. Fine fonts, exhausted defaults. (e.g. Inter)",
+        "[type/single-font-page] [advisory] 1x: One family carrying the entire page: no pairing, no contrast of voice between display and body. (e.g. only \"inter\" declared)"
+      ],
+      "severity": 0,
+      "counts": {
+        "byRule": {
+          "overused-font-stack": 1,
+          "single-font-page": 1
+        },
+        "total": 2,
+        "gating": 0,
+        "advisory": 2
+      },
+      "externalStylesheets": 0
+    },
+    {
+      "file": "/tmp/silence-audit/imprint/index.html",
+      "pass": true,
+      "issues": [
+        "[layout/multiline-row-meta] [advisory] 1x: A review quote or description wrapping to two-plus lines inside a repeating row, snapping the list's vertical rhythm against its single-line neighbors. (e.g. wrapping quote/meta in a list row)",
+        "[type/overused-font-stack] [advisory] 1x: The four display faces every AI-tell list names: Inter, Space Grotesk, Geist, Instrument Serif. Fine fonts, exhausted defaults. (e.g. Inter)",
+        "[type/single-font-page] [advisory] 1x: One family carrying the entire page: no pairing, no contrast of voice between display and body. (e.g. only \"inter\" declared)"
+      ],
+      "severity": 0,
+      "counts": {
+        "byRule": {
+          "multiline-row-meta": 1,
+          "overused-font-stack": 1,
+          "single-font-page": 1
+        },
+        "total": 3,
+        "gating": 0,
+        "advisory": 3
+      },
+      "externalStylesheets": 0
+    },
+    {
+      "file": "/tmp/silence-audit/index.html",
+      "pass": true,
+      "issues": [
+        "[layout/overstuffed-row] [advisory] 7x: The everything-row: thumbnail plus kicker plus title plus location plus quote plus mini-viz crammed into each repeated item, past any scannable density. (e.g. 25 slots in one row; 12 slots in one row; 19 slots in one row)",
+        "[type/overused-font-stack] [advisory] 1x: The four display faces every AI-tell list names: Inter, Space Grotesk, Geist, Instrument Serif. Fine fonts, exhausted defaults. (e.g. Inter)",
+        "[type/single-font-page] [advisory] 1x: One family carrying the entire page: no pairing, no contrast of voice between display and body. (e.g. only \"inter\" declared)"
+      ],
+      "severity": 0,
+      "counts": {
+        "byRule": {
+          "overstuffed-row": 7,
+          "overused-font-stack": 1,
+          "single-font-page": 1
+        },
+        "total": 9,
+        "gating": 0,
+        "advisory": 9
+      },
+      "externalStylesheets": 0
+    },
+    {
+      "file": "/tmp/silence-audit/privacy/index.html",
+      "pass": true,
+      "issues": [
+        "[type/overused-font-stack] [advisory] 1x: The four display faces every AI-tell list names: Inter, Space Grotesk, Geist, Instrument Serif. Fine fonts, exhausted defaults. (e.g. Inter)",
+        "[type/single-font-page] [advisory] 1x: One family carrying the entire page: no pairing, no contrast of voice between display and body. (e.g. only \"inter\" declared)"
+      ],
+      "severity": 0,
+      "counts": {
+        "byRule": {
+          "overused-font-stack": 1,
+          "single-font-page": 1
+        },
+        "total": 2,
+        "gating": 0,
+        "advisory": 2
+      },
+      "externalStylesheets": 0
+    }
+  ]
+}

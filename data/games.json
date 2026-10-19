@@ -1,0 +1,17 @@
+[
+  {
+    "gameId": 3623096087,
+    "status": "available",
+    "summary": "Dedicated controls for training, rebirths and your pet inventory, with a separate farming interface.",
+    "features": ["Strength training", "Rebirth controls", "Boss farming", "Pet management", "Teleports", "Saved configurations"],
+    "source": "Scripts/MuscleLegends/Main.luau",
+    "additionalSources": ["Scripts/MuscleLegends/Farming.luau"]
+  },
+  {
+    "gameId": 75992362647444,
+    "status": "outdated",
+    "summary": "This script is outdated. The existing source includes hatching, pet crafting and enchanting, but is not maintained for the current game.",
+    "features": ["Auto hatching", "Golden pet crafting", "Rainbow pet crafting", "Auto enchanting", "Teleports", "Saved configurations"],
+    "source": "Scripts/tapsim.luau"
+  }
+]

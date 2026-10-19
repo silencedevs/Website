@@ -1,0 +1,113 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "../../components";
+@source "../client";
+
+@theme inline {
+  --color-background: #000;
+  --color-foreground: #f5f5f5;
+  --color-primary: #ff0000;
+  --color-primary-foreground: #fff;
+  --color-secondary: #202022;
+  --color-secondary-foreground: #f5f5f5;
+  --color-accent: #8a0000;
+  --color-accent-foreground: #fff;
+  --color-muted-foreground: #b8b7b5;
+  --color-card: #151516;
+  --color-card-foreground: #f5f5f5;
+  --color-input: #555;
+  --color-ring: #ff0000;
+  --color-destructive: #8a0000;
+  --color-destructive-foreground: #fff;
+}
+
+.liquid-hero {
+  --silence-red-deep: rgb(138, 0, 0);
+  --silence-red-bright: #ff0000;
+  min-height: min(900px, calc(100svh - 104px));
+  width: 100%;
+  background: transparent;
+  padding: 100px var(--gutter) 110px;
+}
+.liquid-content {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: 0;
+  position: relative;
+}
+
+.liquid-hero .liquid-title {
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: Inter, sans-serif;
+  font-size: clamp(56px, 5.5vw, 80px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.025em;
+  color: #fff;
+}
+.liquid-hero .liquid-subtitle {
+  max-width: 630px;
+  margin: 28px auto 0;
+  color: #f5f5f5;
+  font-size: 22px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+.liquid-actions { margin-top: 36px; }
+.liquid-hero .liquid-action {
+  min-height: 56px;
+  padding: 16px 30px;
+  border-radius: var(--radius-control);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  transition: color .2s, background-color .2s, border-color .2s;
+}
+.liquid-primary {background: var(--silence-red-deep); color: #fff}
+.liquid-primary:hover { background: #ff0000; border-color: #ff0000; }
+.liquid-secondary {background: #ffffff0a; color: #fff}
+.liquid-secondary:hover { background: #ffffff14; border-color: #ffffff40; }
+.liquid-hero .liquid-features {
+  max-width: 780px;
+  margin: 70px auto 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #dfdfdf;
+}
+.liquid-features p { margin: 0; max-width: none; font-size: 16px; }
+.liquid-badge { margin-bottom: 24px; background: #202022; color: #f5f5f5; }
+.liquid-action:focus-visible { outline: 3px solid #ff0000; outline-offset: 6px; }
+@media (max-width: 650px) {
+  .liquid-hero { min-height: calc(100svh - 88px); padding: 78px 20px 92px; }
+  .liquid-hero .liquid-title { font-size: clamp(52px, 15vw, 72px); max-width: 450px; }
+  .liquid-hero .liquid-subtitle { margin-top: 24px; font-size: 18px; max-width: 34ch; }
+  .liquid-actions { margin-top: 28px; gap: 12px; }
+  .liquid-actions > div { width: min(100%, 300px); }
+  .liquid-hero .liquid-action { width: 100%; min-height: 52px; }
+  .liquid-hero .liquid-features { margin-top: 36px; }
+  .liquid-features > div { gap: 12px; }
+  .liquid-features p { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .liquid-action { transition: none; }
+}
+
+
+.liquid-logo { display: block; margin: 0 auto 28px; width: 104px; height: 104px; border-radius: 12px; }
+.hero-copy-feedback { max-width: 42ch; min-height: 26px; margin: 14px auto 0; color: #f5f5f5; font-size: 14px; }
+@media (max-width: 650px) { .liquid-logo { width: 80px; height: 80px; margin-bottom: 24px; } .liquid-hero { padding-top: 48px; } }
+
+.liquid-hero .rotating-intro { color: #ff0000; font-size: 24px; line-height: 1.5; margin-top: 20px; min-height: 36px; }
+.rotating-intro strong { display: inline-block; font-weight: 750; min-width: 0; text-align: center; transition: opacity .18s ease, transform .18s ease; }
+.rotating-intro strong.is-changing { opacity: 0; transform: translateY(5px); }
+.liquid-hero .liquid-secondary { --slop-allow: redundant-border; border: 1.5px solid rgba(255,255,255,.16); background: rgba(10,10,12,.42); border-radius: var(--radius-control); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); font-family: Inter,sans-serif; font-size: 16px; padding: 14px 24px; min-height: 56px; gap: 10px; }
+.liquid-hero .liquid-secondary:hover { border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.07); }
+.liquid-hero .liquid-secondary::after { content: none; }
+@media(prefers-reduced-motion:reduce) { .rotating-intro strong { transition: none; } }
+
+.liquid-hero .rotating-intro { display: flex; justify-content: center; align-items: baseline; gap: .3em; }
