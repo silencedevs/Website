@@ -579,13 +579,6 @@ code {
   color:var(--muted);
   margin-top:24px;
 }
-.game-intro {
-  max-width:70ch;
-  margin:-24px 0 40px;
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.7;
-}
 .back {
   display:inline-flex;
   min-height:44px;
@@ -1353,11 +1346,11 @@ html { scrollbar-color: var(--accent-deep, #8a0000) rgba(255,0,0,.08); scrollbar
    gets a soft radial blur patch that fades out toward the edges. Text living inside a glass
    surface (cards, FAQ list, loader window, markdown window, community stats) is left untouched
    so nothing gets blurred twice. */
-:is(.liquid-title,.liquid-subtitle,.reference-loader h2,.loader-description,.section-heading h2,.section-heading p,.view-all-link,.page-intro h1,.page-intro p,.page-intro .back,.game-intro,.faq-layout>h2,.about-grid>div>h2,.about-copy>p,.about-grid .text-link,.detail-side .text-link,.source-note,.empty h3,.empty p,.results,.detail-grid section>h2,.detail-grid section>p,.detail-status,.notice p) {
+:is(.liquid-title,.liquid-subtitle,.reference-loader h2,.loader-description,.section-heading h2,.section-heading p,.view-all-link,.page-intro h1,.page-intro p,.page-intro .back,.faq-layout>h2,.about-grid>div>h2,.about-copy>p,.about-grid .text-link,.detail-side .text-link,.source-note,.empty h3,.empty p,.results,.detail-grid section>h2,.detail-grid section>p,.detail-status,.notice p) {
   position: relative;
   isolation: isolate;
 }
-:is(.liquid-title,.liquid-subtitle,.reference-loader h2,.loader-description,.section-heading h2,.section-heading p,.view-all-link,.page-intro h1,.page-intro p,.page-intro .back,.game-intro,.faq-layout>h2,.about-grid>div>h2,.about-copy>p,.about-grid .text-link,.detail-side .text-link,.source-note,.empty h3,.empty p,.results,.detail-grid section>h2,.detail-grid section>p,.detail-status,.notice p)::before {
+:is(.liquid-title,.liquid-subtitle,.reference-loader h2,.loader-description,.section-heading h2,.section-heading p,.view-all-link,.page-intro h1,.page-intro p,.page-intro .back,.faq-layout>h2,.about-grid>div>h2,.about-copy>p,.about-grid .text-link,.detail-side .text-link,.source-note,.empty h3,.empty p,.results,.detail-grid section>h2,.detail-grid section>p,.detail-status,.notice p)::before {
   content: '';
   position: absolute;
   inset: -70% 0;
@@ -1372,7 +1365,7 @@ html { scrollbar-color: var(--accent-deep, #8a0000) rgba(255,0,0,.08); scrollbar
 :is(.faq-list,.loader-window,.markdown-window,.community-stat,.game-entry.game-tile) :is(h2,h3,p,.source-note,.detail-status) { position: static; }
 :is(.faq-list,.loader-window,.markdown-window,.community-stat,.game-entry.game-tile) :is(h2,h3,p,.source-note,.detail-status)::before { content: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
 @media(prefers-reduced-transparency:reduce){
-  :is(.liquid-title,.liquid-subtitle,.reference-loader h2,.loader-description,.section-heading h2,.section-heading p,.view-all-link,.page-intro h1,.page-intro p,.page-intro .back,.game-intro,.faq-layout>h2,.about-grid>div>h2,.about-copy>p,.about-grid .text-link,.detail-side .text-link,.source-note,.empty h3,.empty p,.results,.detail-grid section>h2,.detail-grid section>p,.detail-status,.notice p)::before {
+  :is(.liquid-title,.liquid-subtitle,.reference-loader h2,.loader-description,.section-heading h2,.section-heading p,.view-all-link,.page-intro h1,.page-intro p,.page-intro .back,.faq-layout>h2,.about-grid>div>h2,.about-copy>p,.about-grid .text-link,.detail-side .text-link,.source-note,.empty h3,.empty p,.results,.detail-grid section>h2,.detail-grid section>p,.detail-status,.notice p)::before {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }

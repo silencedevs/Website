@@ -65,24 +65,20 @@ export function gamesIndex({ site, games, base, gamesHtml }) {
 
 export function gamePage({ game, site, base }) {
   const source = game.source ? `${site.repository}/blob/main/${game.source}` : `${site.repository}/blob/main/Loader/Supported.luau`;
-  const outdated = game.status === 'outdated';
-  const featureText = game.features.length ? game.features.join(', ') : '';
   return `<div class="frame">
     <header class="page-intro"><a class="back" href="${base}games/">Back to all games</a><h1>${e(game.name)} Script</h1><p>${e(game.summary)}</p></header>
-    <p class="game-intro">Silence script for ${e(game.name)}${featureText ? ` includes ${e(featureText)}` : ''}. Free open source Roblox script by Silence, available for everyone to review and use.</p>
-    ${outdated ? '<div class="notice"><p><strong>Outdated script.</strong> This page is an archive. The features describe the existing code and may no longer work. No execution instructions are provided here.</p></div>' : ''}
     <div class="detail-grid">
       <div class="detail-side">
         <img src="${base}${game.image}" width="768" height="432" alt="${e(game.name)} game artwork" fetchpriority="high">
-        <div class="actions">${action(outdated ? 'Review archived source' : 'Open on Roblox', outdated ? source : game.url)}${outdated ? `<a class="text-link" href="${base}#games">View the game library</a>` : `<a class="text-link" href="${e(source)}" rel="noreferrer">View Source Code</a>`}</div>
+        <div class="actions">${action('View on Roblox', game.url)}<a class="text-link" href="${e(source)}" rel="noreferrer">View Source Code</a></div>
         <p class="source-note">Game artwork by ${e(game.creator)}. <a href="${e(game.url)}" rel="noreferrer">Original game page</a>.</p>
       </div>
-      <section aria-labelledby="features-title"><h2 id="features-title">${outdated ? 'Archived features' : 'Script features'}</h2>
+      <section aria-labelledby="features-title"><h2 id="features-title">Script features</h2>
         <article class="markdown-window"><div class="markdown-content">${game.documentation}</div></article>
-        <p class="detail-status">${statusLabel(game)}${outdated ? '. These features are retained for reference.' : '. Check Discord for compatibility with the latest game update.'}</p>
+        <p class="detail-status">${statusLabel(game)}. Check Discord for compatibility with the latest game update.</p>
       </section>
     </div>
-  </div>${!outdated && game.status === 'available' ? loader(site, game) : ''}`;
+  </div>${loader(site, game)}`;
 }
 
 

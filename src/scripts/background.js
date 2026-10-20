@@ -72,6 +72,7 @@ function mount(canvas, version) {
     const position = gl.getAttribLocation(program, 'a_pos'); gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position,2,gl.FLOAT,false,0,0);
     const time = gl.getUniformLocation(program,'u_time'), resolution = gl.getUniformLocation(program,'u_resolution'), pointer = gl.getUniformLocation(program,'u_mouse');
     const reduced = () => preference.matches && !overrideMotion;
+    const pointerResponsive = matchMedia('(hover: hover) and (pointer: fine)').matches;
     const draw = () => {
       gl.uniform1f(time, elapsed); gl.uniform2f(resolution, canvas.width, canvas.height); gl.uniform2f(pointer, mouse.x, mouse.y); gl.drawArrays(gl.TRIANGLES,0,3);
     };
@@ -100,8 +101,11 @@ function mount(canvas, version) {
     const move = event=>{if(event.pointerType==='touch')return;const rect=canvas.getBoundingClientRect();mouse.x=(event.clientX-rect.left)/rect.width;mouse.y=1-(event.clientY-rect.top)/rect.height;};
     const changePreference=()=>{overrideMotion=false;draw();update();};
     const lost=event=>{event.preventDefault();cancelAnimationFrame(raf);document.documentElement.dataset.background='unavailable';control.textContent='Retry background';control.title='The graphics context was lost.';status.hidden=false;status.textContent='The background graphics context was lost.';control.onclick=startBackground;};
-    const pointerResponsive = matchMedia('(hover: hover) and (pointer: fine)').matches;
-    const observer=new ResizeObserver(resize);observer.observe(canvas);
+    const observer=new ResizeObserver(() => {
+      const width = Math.max(1, Math.floor(canvas.clientWidth*Math.min(devicePixelRatio || 1, 2)));
+      if (!pointerResponsive && width === canvas.width) return;
+      resize();
+    });observer.observe(canvas);
     if (pointerResponsive) window.addEventListener('pointermove',move,{passive:true});
     document.addEventListener('visibilitychange',update);preference.addEventListener('change',changePreference);canvas.addEventListener('webglcontextlost',lost);
     document.documentElement.dataset.backgroundRenderer=version;

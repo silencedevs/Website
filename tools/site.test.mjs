@@ -56,8 +56,8 @@ for (const url of ['https://silencedevs.github.io/Website/', 'https://silencedev
       assert.equal(games.find((game) => game.gameId === 75992362647444).status, 'outdated');
       assert.doesNotMatch(home, /Murder Mystery|Hyper Speed Runner|Zombie Arena/);
       const archive = await readFile(resolve(out, 'games/75992362647444/index.html'), 'utf8');
-      assert.match(archive, /Outdated script/);
-      assert.doesNotMatch(archive, /data-copy|id="loader"/);
+      assert.match(archive, /Outdated/);
+      assert.match(archive, /id="loader"/);
       for (const file of files) {
         const html = await readFile(file, 'utf8');
         assert.equal((html.match(/<h1[ >]/g) || []).length, 1, file);
