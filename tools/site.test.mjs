@@ -25,7 +25,7 @@ for (const url of ['https://silencedevs.github.io/Website/', 'https://silencedev
       const files = [];
       const walk = async (directory) => { for (const entry of await readdir(directory, { withFileTypes: true })) { const path = join(directory, entry.name); if (entry.isDirectory()) await walk(path); else if (path.endsWith('.html')) files.push(path); } };
       await walk(out);
-      assert.equal(files.length, games.length + projects.length + 3);
+      assert.equal(files.length, games.length + projects.length + 3 + (projects.length ? 1 : 0));
       const home = await readFile(resolve(out, 'index.html'), 'utf8');
       if (url.endsWith('/Website/')) {
         const attempts = [], control = {}, status = {}, documentElement = { dataset: {} };
@@ -87,7 +87,7 @@ for (const url of ['https://silencedevs.github.io/Website/', 'https://silencedev
         assert.ok((await stat(resolve(out, new URL(social).pathname.slice(base.length)))).isFile());
       }
       const sitemap = await readFile(resolve(out, 'sitemap.xml'), 'utf8');
-      assert.equal((sitemap.match(/<loc>/g) || []).length, games.length + projects.length + 2);
+      assert.equal((sitemap.match(/<loc>/g) || []).length, games.length + projects.length + 2 + (projects.length ? 1 : 0));
       assert.ok(sitemap.includes(site.url));
       assert.ok((await stat(resolve(out, 'index.html'))).isFile());
       assert.ok((await stat(resolve(out, '.nojekyll'))).isFile());

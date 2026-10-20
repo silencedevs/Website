@@ -620,6 +620,10 @@ code {
   display:flex;
   flex-direction:column;
   min-height:0;
+  min-width:0;
+}
+.detail-grid > * {
+  min-width:0;
 }
 .detail-grid .detail-status {
   margin-top:auto;

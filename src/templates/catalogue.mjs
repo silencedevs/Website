@@ -31,7 +31,7 @@ export function home({ site, games, projects, stats, base, heroHtml, gamesHtml, 
     <div class="game-list" id="game-list">${gamesHtml}</div>
     <p class="source-note">Check <a href="${e(site.discord)}" rel="noreferrer">Discord</a> for current compatibility and support.</p>
   </section>
-  ${projects.length ? `<section class="section frame" id="projects" aria-labelledby="projects-title"><div class="section-heading"><h2 id="projects-title">Other projects</h2><p>More from Silence. Explore the features, source code and documentation.</p></div><div class="game-list">${projectsHtml}</div></section>` : ''}
+  ${projects.length ? `<section class="section frame" id="projects" aria-labelledby="projects-title"><div class="section-heading section-heading-action"><h2 id="projects-title">Other Projects</h2><a class="view-all-link" href="${base}projects/">View all projects</a></div><div class="game-list">${projectsHtml}</div></section>` : ''}
   <section id="questions" class="section frame faq-layout" aria-labelledby="faq-title">
     <h2 id="faq-title">Before you begin</h2>
     <div class="faq-list">
@@ -63,6 +63,15 @@ export function gamesIndex({ site, games, base, gamesHtml }) {
   </section>`;
 }
 
+export function projectsIndex({ site, projects, base, projectsHtml }) {
+  return `<div class="frame"><header class="page-intro"><a class="back" href="${base}">Back to Silence</a><h1>Projects</h1><p>More from Silence. Explore the features, source code and documentation for each project.</p></header></div>
+  <section class="section frame" id="projects" aria-labelledby="projects-title">
+    <div class="section-heading"><h2 id="projects-title">All Projects</h2><p>Browse everything Silence has built beyond game scripts.</p></div>
+    <div class="game-list" id="game-list">${projectsHtml}</div>
+    <p class="source-note">Check <a href="${e(site.discord)}" rel="noreferrer">Discord</a> for questions and support.</p>
+  </section>`;
+}
+
 export function gamePage({ game, site, base }) {
   const source = game.source ? `${site.repository}/${game.source.endsWith('/') ? 'tree' : 'blob'}/main/${game.source}` : `${site.repository}/blob/main/Loader/Supported.luau`;
   const status = `${statusLabel(game)}${game.version ? ` · v${e(game.version)}` : ''}`;
@@ -90,5 +99,6 @@ function communityStats({ site, games, stats }) {
 }
 
 export function projectPage({ project, base }) {
-  return `<div class="frame"><header class="page-intro"><a class="back" href="${base}#projects">Back to all projects</a><h1>${e(project.name)}</h1><p>${e(project.summary)}</p></header><div class="detail-grid">${project.image ? `<img src="${base}${e(project.image)}" alt="${e(project.name)} project preview" width="768" height="432" fetchpriority="high">` : ''}<section class="prose" aria-labelledby="project-overview"><h2 id="project-overview">Overview</h2><p>${e(project.description)}</p>${project.features.length ? `<h2>Features</h2><ul class="feature-list">${project.features.map((feature) => `<li>${e(feature)}</li>`).join('')}</ul>` : ''}<div class="actions">${project.links.map((link) => `<a class="button secondary" href="${e(link.url)}" rel="noreferrer">${e(link.label)}</a>`).join('')}</div></section></div></div>`;
+  const documentation = project.documentation || (project.features.length ? `<ul class="feature-list">${project.features.map((feature) => `<li>${e(feature)}</li>`).join('')}</ul>` : '');
+  return `<div class="frame"><header class="page-intro"><a class="back" href="${base}projects/">Back to all projects</a><h1>${e(project.name)}</h1><p>${e(project.summary)}</p></header><div class="detail-grid"><div class="detail-side">${project.image ? `<img src="${base}${e(project.image)}" alt="${e(project.name)} project preview" width="768" height="432" fetchpriority="high">` : ''}<div class="actions">${project.links.map((link, index) => index === 0 ? action(link.label, link.url) : `<a class="button secondary" href="${e(link.url)}" rel="noreferrer">${e(link.label)}</a>`).join('')}</div></div><section aria-labelledby="project-overview"><h2 id="project-overview">Overview</h2><p>${e(project.description)}</p>${documentation ? `<h2 id="project-features">Features</h2><article class="markdown-window"><div class="markdown-content">${documentation}</div></article>` : ''}</section></div></div>`;
 }

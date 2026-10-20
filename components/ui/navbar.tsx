@@ -32,5 +32,5 @@ export function NavBar({ logo, homeHref, links, cta, className }: NavBarProps) {
 }
 
 export function SilenceNavigation({ base, discord, repository, hasProjects }: { base: string; discord: string; repository: string; hasProjects: boolean }) {
-  return <NavBar homeHref={base} logo={<><img src={`${base}assets/favicon.png`} width={38} height={38} alt="" />Silence</>} links={[{label:'Home',href:base},{label:'Loadstring',href:`${base}#loader`},{label:'Games',href:`${base}games/`},...(hasProjects ? [{label:'Projects',href:`${base}#projects`}] : []),{label:'Questions',href:`${base}#questions`},{label:'About',href:`${base}#about`}]} cta={{label:'Join Discord',href:discord}} />;
+  return <NavBar homeHref={base} logo={<><img src={`${base}assets/favicon.png`} width={38} height={38} alt="" />Silence</>} links={[{label:'Home',href:base},{label:'Loadstring',href:`${base}#loader`},{label:'Games',href:`${base}games/`},...(hasProjects ? [{label:'Projects',href:`${base}projects/`}] : []),{label:'Questions',href:`${base}#questions`},{label:'About',href:`${base}#about`}]} cta={{label:'Join Discord',href:discord}} />;
 }

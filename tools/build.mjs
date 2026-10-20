@@ -5,7 +5,7 @@ import { layout as renderLayout, escape } from '../src/templates/layout.mjs';
 import { renderGameMarkdown } from './markdown.mjs';
 import { validateProjects } from './projects.mjs';
 import { configureActions, action } from '../src/templates/actions.mjs';
-import { home, gamePage, projectPage, gamesIndex } from '../src/templates/catalogue.mjs';
+import { home, gamePage, projectPage, gamesIndex, projectsIndex } from '../src/templates/catalogue.mjs';
 import { writeNotices } from './notices.mjs';
 import { buildBackground } from './build-background.mjs';
 import { generateSocialImages } from './social-images.mjs';
@@ -66,7 +66,7 @@ export async function build({ output = 'dist', siteUrl = process.env.SITE_URL, p
   await buildBackground(root, out);
   await cp(hero.clientDir, resolve(out, 'ui'), { recursive: true });
   await writeNotices(root, out);
-  const socialImages = await generateSocialImages({ root, out, games });
+  const socialImages = await generateSocialImages({ root, out, games, projects });
   const paths = [];
   const emit = async (path, content, indexable = true) => {
     const file = resolve(out, path, 'index.html');
@@ -124,14 +124,32 @@ export async function build({ output = 'dist', siteUrl = process.env.SITE_URL, p
     ];
     await emit(path, layout({ title, description, keywords, path, site, base, image: socialImages[game.gameId] || game.image, imageWidth: socialImages[game.gameId] ? 1200 : 768, imageHeight: socialImages[game.gameId] ? 630 : 432, imageAlt: `Silence ${game.name} Script`, body: gamePage({ game, site, base }), schema: gameSchema }));
   }
+  if (projects.length) {
+    const projectsIndexDescription = 'Projects by Silence. Explore the features, source code and documentation for everything Silence has built beyond game scripts.';
+    const projectsIndexKeywords = ['Silence projects', 'Silence', 'Roblox', 'open source', ...projects.map((project) => project.name)];
+    const projectsIndexSchema = [
+      { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Our projects', url: new URL('projects/', site.url).href, description: projectsIndexDescription, inLanguage: 'en', isPartOf: { '@type': 'WebSite', name: 'Silence', url: site.url } },
+      { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Silence', item: site.url }, { '@type': 'ListItem', position: 2, name: 'Projects', item: new URL('projects/', site.url).href }] },
+      { '@context': 'https://schema.org', '@type': 'ItemList', name: 'Silence projects', numberOfItems: projects.length, itemListElement: projects.map((project, index) => ({ '@type': 'ListItem', position: index + 1, name: project.name, url: new URL(`projects/${project.slug}/`, site.url).href })) },
+    ];
+    await emit('projects/', layout({ title: 'Our Projects | Silence', description: projectsIndexDescription, keywords: projectsIndexKeywords, path: 'projects/', image: socialImages.projects, imageWidth: 1200, imageHeight: 630, imageAlt: `${projects.length} Silence projects`, body: projectsIndex({ site, projects, base, projectsHtml: hero.renderProjectCards({ projects, base }) }), site, base, heroAssets: { css: hero.css }, schema: projectsIndexSchema }));
+  }
   for (const project of projects) {
     if (project.image) await stat(resolve(root, 'public', project.image));
+    const docPath = resolve(root, 'data/projects', `${project.slug}.md`);
+    let docContent;
+    try { docContent = await readFile(docPath, 'utf8'); }
+    catch (error) {
+      if (error.code !== 'ENOENT') throw error;
+      docContent = project.features.length ? project.features.map((feature) => `- ${feature}`).join('\n') : '';
+    }
+    project.documentation = docContent.trim() ? renderGameMarkdown(docContent, base) : '';
     const path = `projects/${project.slug}/`;
     const projectSchema = [
       { '@context': 'https://schema.org', '@type': 'WebPage', name: project.name, description: project.summary, url: new URL(path, site.url).href, inLanguage: 'en', isPartOf: { '@type': 'WebSite', name: 'Silence', url: site.url } },
-      { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Silence', item: site.url }, { '@type': 'ListItem', position: 2, name: 'Projects', item: `${site.url}#projects` }, { '@type': 'ListItem', position: 3, name: project.name, item: new URL(path, site.url).href }] },
+      { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Silence', item: site.url }, { '@type': 'ListItem', position: 2, name: 'Projects', item: new URL('projects/', site.url).href }, { '@type': 'ListItem', position: 3, name: project.name, item: new URL(path, site.url).href }] },
     ];
-    await emit(path, layout({ title: `${project.name} | Silence`, description: project.summary, path, site, base, image: project.image, imageAlt: project.image ? `${project.name} project preview` : undefined, body: projectPage({ project, base }), schema: projectSchema }));
+    await emit(path, layout({ title: `${project.name} | Silence`, description: project.summary, path, site, base, image: project.image, imageWidth: 768, imageHeight: 432, imageAlt: project.image ? `${project.name} project preview` : undefined, body: projectPage({ project, base }), schema: projectSchema }));
   }
   await writeFile(resolve(out, '404.html'), layout({ title: 'Page Not Found | Silence', description: 'This page could not be found. Return to the Silence game library.', path: '404.html', noindex: true, site, base, body: `<div class="frame"><header class="page-intro"><h1>Page not found</h1><p>The link may have changed. The game library is a good place to start.</p><div class="actions">${action('View games', `${base}#games`)}<a class="text-link" href="${escape(site.discord)}" rel="noreferrer">Ask in Discord</a></div></header></div>` }));
   const lastmod = new Date().toISOString().slice(0, 10);

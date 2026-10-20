@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "slug": "eleriumv2",
+    "name": "Custom Elerium V2",
+    "summary": "A modified version of Elerium V2.",
+    "description": "Our Elerium includes many more features, better Support for mobile, native controlling and ad-ons.",
+    "features": [
+      "Extra Features",
+      "Theme Manager",
+      "Config Manager"
+    ],
+    "links": [
+      { "label": "View on GitHub", "url": "https://github.com/silencedevs/SilenceScripts/tree/main/libraries/eleriumv2" }
+    ],
+    "image": "assets/projects/eleriumv2.png"
+  }
+]

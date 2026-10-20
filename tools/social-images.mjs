@@ -85,6 +85,26 @@ function homeFrame({ logo }) {
 </svg>`;
 }
 
+function projectsFrame({ projects, logo }) {
+  const names = projects.map((project) => project.name);
+  const listed = names.slice(0, 4).map((name, index) => `<text x="80" y="${300 + index * 62}" font-family="${FONT}" font-size="40" font-weight="700" fill="#c9c8c6">${escapeXml(name)}</text>`).join('');
+  const more = names.length > 4 ? `<text x="80" y="${300 + 4 * 62}" font-family="${FONT}" font-size="34" fill="#8f8e8c">+${names.length - 4} more</text>` : '';
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}">
+  <defs>
+    <radialGradient id="glow" cx="30%" cy="35%" r="70%"><stop offset="0%" stop-color="#3a0000"/><stop offset="60%" stop-color="#120000"/><stop offset="100%" stop-color="#0b0b0c"/></radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff0000"/><stop offset="100%" stop-color="#8a0000"/></linearGradient>
+  </defs>
+  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#glow)"/>
+  <rect x="0" y="0" width="${WIDTH}" height="6" fill="url(#accent)"/>
+  ${brandMark(logo, 1052, 42, 108)}
+  <text x="80" y="200" font-family="${FONT}" font-size="128" font-weight="800" fill="#f6f5f2" letter-spacing="-3">Projects</text>
+  <text x="80" y="250" font-family="${FONT}" font-size="40" font-weight="700" fill="#ff3b3b">${projects.length} ${projects.length === 1 ? 'project' : 'projects'} by Silence</text>
+  ${listed}
+  ${more}
+  <text x="80" y="580" font-family="${FONT}" font-size="26" fill="#8f8e8c">Silence · Open source Roblox scripts</text>
+</svg>`;
+}
+
 async function renderPng(svgPath, pngPath) {
   try {
     await run('rsvg-convert', ['-w', String(WIDTH), '-h', String(HEIGHT), '-o', pngPath, svgPath]);
@@ -95,7 +115,7 @@ async function renderPng(svgPath, pngPath) {
   }
 }
 
-export async function generateSocialImages({ root, out, games, base, site }) {
+export async function generateSocialImages({ root, out, games, projects = [], base, site }) {
   const assetsDir = resolve(out, 'assets', 'social');
   await rm(assetsDir, { recursive: true, force: true });
   await mkdir(assetsDir, { recursive: true });
@@ -113,6 +133,14 @@ export async function generateSocialImages({ root, out, games, base, site }) {
   await writeFile(homePath, homeSvg);
   if (await renderPng(homePath, resolve(assetsDir, 'home.png'))) results.home = 'assets/social/home.png';
   await rm(homePath, { force: true });
+
+  if (projects.length) {
+    const projectsSvg = projectsFrame({ projects, logo });
+    const projectsPath = resolve(assetsDir, 'projects.svg');
+    await writeFile(projectsPath, projectsSvg);
+    if (await renderPng(projectsPath, resolve(assetsDir, 'projects.png'))) results.projects = 'assets/social/projects.png';
+    await rm(projectsPath, { force: true });
+  }
 
   const indexIcons = await Promise.all(games.slice(0, 3).map(async (game) => {
     try { return await dataUri(resolve(root, 'public', game.icon)); } catch { return ''; }
