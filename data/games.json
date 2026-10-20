@@ -14,5 +14,13 @@
     "summary": "This Script is a full Farming Script for Tap Simulator, its outdated tho.",
     "features": ["Auto Hatch", "Auto Craft", "Auto Enchant"],
     "source": "Scripts/tapsim.luau"
+  },
+  {
+    "gameId": 107778070777162,
+    "status": "available",
+    "version": "1.0.0",
+    "summary": "Automated egg farming, placement, hatching, pet management, filtered selling, upgrades, event assistance and ESP.",
+    "features": ["Auto Collect/Place/Hatch", "Pet Management", "ESP"],
+    "source": "Scripts/stealaneg.luau"
   }
 ]

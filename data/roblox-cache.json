@@ -7,16 +7,26 @@
     "image": "assets/games/3623096087-cover.png",
     "icon": "assets/games/3623096087-icon.png",
     "imageSource": "https://tr.rbxcdn.com/180DAY-445ec13cdfdb598442a03dc8ec35cbe2/768/432/Image/Png/noFilter",
-    "retrievedAt": "2026-10-19T19:13:12.630Z"
+    "retrievedAt": "2026-10-20T22:09:21.029Z"
   },
   "75992362647444": {
-    "name": "Tap Simulator",
+    "name": "Legacy Tap Simulator",
     "universeId": 8779464785,
     "creator": "Cursor Makers",
     "url": "https://www.roblox.com/games/75992362647444",
     "image": "assets/games/75992362647444-cover.png",
     "icon": "assets/games/75992362647444-icon.png",
     "imageSource": "https://tr.rbxcdn.com/180DAY-a9bc7fddcad6d222dcce52e75a6c85d7/768/432/Image/Png/noFilter",
-    "retrievedAt": "2026-10-19T19:13:13.317Z"
+    "retrievedAt": "2026-10-20T22:09:21.689Z"
+  },
+  "107778070777162": {
+    "name": "Steal An Egg",
+    "universeId": 10563114921,
+    "creator": "and Collect Rare Pets",
+    "url": "https://www.roblox.com/games/107778070777162",
+    "image": "assets/games/107778070777162-cover.png",
+    "icon": "assets/games/107778070777162-icon.png",
+    "imageSource": "https://tr.rbxcdn.com/180DAY-875b2a6dc156ce6dd64eb637e73238ce/768/432/Image/Png/noFilter",
+    "retrievedAt": "2026-10-20T22:09:22.323Z"
   }
 }
