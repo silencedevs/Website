@@ -11,10 +11,12 @@ export function externalLinks(html, siteUrl) {
     return `<a${clean} target="_blank" rel="noopener noreferrer">`;
   });
 }
-export function layout({ title, description, path = '', body, site, base, image, imageAlt, noindex = false, schema, heroAssets, navigationHtml, hasProjects, keywords }) {
+export function layout({ title, description, path = '', body, site, base, image, imageAlt, imageWidth, imageHeight, noindex = false, schema, heroAssets, navigationHtml, hasProjects, keywords }) {
   const href = (suffix = '') => `${base}${suffix}`;
   const absolute = (suffix = '') => new URL(suffix, site.url).href;
   const shareImage = absolute(image || 'assets/social-preview.png');
+  const shareWidth = imageWidth || (image ? 768 : 1200);
+  const shareHeight = imageHeight || (image ? 432 : 630);
   return externalLinks(`<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer">
@@ -24,7 +26,7 @@ ${keywords && keywords.length ? `<meta name="keywords" content="${escape(keyword
 <meta name="theme-color" content="#0b0b0c"><meta name="color-scheme" content="dark">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Silence"><meta property="og:locale" content="en_US">
 <meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${escape(absolute(path))}">
-<meta property="og:image" content="${escape(shareImage)}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="${image ? 768 : 1200}"><meta property="og:image:height" content="${image ? 432 : 630}"><meta property="og:image:alt" content="${escape(imageAlt || (image ? title : 'Silence with the red Silence emblem'))}">
+<meta property="og:image" content="${escape(shareImage)}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="${shareWidth}"><meta property="og:image:height" content="${shareHeight}"><meta property="og:image:alt" content="${escape(imageAlt || (image ? title : 'Silence with the red Silence emblem'))}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(title)}"><meta name="twitter:description" content="${escape(description)}"><meta name="twitter:image" content="${escape(shareImage)}">
 <link rel="icon" type="image/png" sizes="64x64" href="${href('assets/favicon.png')}"><link rel="apple-touch-icon" href="${href('assets/apple-touch-icon.png')}">
 <link rel="preload" href="${href('assets/inter-variable.woff2')}" as="font" type="font/woff2" crossorigin>

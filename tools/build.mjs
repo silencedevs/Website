@@ -100,7 +100,7 @@ export async function build({ output = 'dist', siteUrl = process.env.SITE_URL, p
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
   ];
   const homeKeywords = ['Silence', 'Silence script', 'Silence scripts', 'Silence Roblox script', 'free Roblox scripts', 'open source Roblox scripts', 'Roblox script hub', 'Roblox script executor', ...games.flatMap((game) => [`${game.name} script`, game.name])];
-  await emit('', layout({ title: 'Silence | Open Source Roblox Scripts', description, keywords: homeKeywords, body: home({ site, games, projects, stats, base, heroHtml, projectsHtml: hero.renderProjectCards({ projects, base }), gamesHtml: hero.renderGameCards({ games: games.slice(0, 4), base }) }), site, base, heroAssets: { css: hero.css }, schema: homeSchema }));
+  await emit('', layout({ title: 'Silence | Open Source Roblox Scripts', description, keywords: homeKeywords, image: socialImages.home, imageWidth: 1200, imageHeight: 630, imageAlt: 'Silence, open source Roblox scripts', body: home({ site, games, projects, stats, base, heroHtml, projectsHtml: hero.renderProjectCards({ projects, base }), gamesHtml: hero.renderGameCards({ games: games.slice(0, 4), base }) }), site, base, heroAssets: { css: hero.css }, schema: homeSchema }));
   const gamesIndexDescription = 'The complete Silence game library. Search every supported game and check script status.';
   const gamesIndexKeywords = ['Silence game library', 'Silence scripts', 'Roblox scripts', 'Roblox script list', ...games.map((game) => `${game.name} script`)];
   const gamesIndexSchema = [
@@ -108,7 +108,7 @@ export async function build({ output = 'dist', siteUrl = process.env.SITE_URL, p
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Silence', item: site.url }, { '@type': 'ListItem', position: 2, name: 'Games', item: new URL('games/', site.url).href }] },
     { '@context': 'https://schema.org', '@type': 'ItemList', name: 'Silence game library', numberOfItems: games.length, itemListElement: games.map((game, index) => ({ '@type': 'ListItem', position: index + 1, name: game.name, url: new URL(`games/${game.gameId}/`, site.url).href })) },
   ];
-  await emit('games/', layout({ title: 'All Games | Open Source Roblox Scripts by Silence', description: gamesIndexDescription, keywords: gamesIndexKeywords, path: 'games/', image: socialImages.games, imageAlt: `${games.length} Silence Roblox scripts in the game library`, body: gamesIndex({ site, games, base, gamesHtml: hero.renderGameCards({ games, base }) }), site, base, heroAssets: { css: hero.css }, schema: gamesIndexSchema }));
+  await emit('games/', layout({ title: 'All Games | Open Source Roblox Scripts by Silence', description: gamesIndexDescription, keywords: gamesIndexKeywords, path: 'games/', image: socialImages.games, imageWidth: 1200, imageHeight: 630, imageAlt: `${games.length} Silence Roblox scripts in the game library`, body: gamesIndex({ site, games, base, gamesHtml: hero.renderGameCards({ games, base }) }), site, base, heroAssets: { css: hero.css }, schema: gamesIndexSchema }));
   for (const game of games) {
     await stat(resolve(root, 'public', game.image));
     const path = `games/${game.gameId}/`;
@@ -122,7 +122,7 @@ export async function build({ output = 'dist', siteUrl = process.env.SITE_URL, p
       { '@context': 'https://schema.org', '@type': 'VideoGame', name: game.name, url: game.url, image: imageUrl, applicationCategory: 'Game', author: { '@type': 'Organization', name: game.creator }, ...(featureText ? { featureList: game.features } : {}) },
       { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Silence', item: site.url }, { '@type': 'ListItem', position: 2, name: 'Games', item: new URL('games/', site.url).href }, { '@type': 'ListItem', position: 3, name: game.name, item: new URL(path, site.url).href }] },
     ];
-    await emit(path, layout({ title, description, keywords, path, site, base, image: socialImages[game.gameId] || game.image, imageAlt: `Silence ${game.name} Script`, body: gamePage({ game, site, base }), schema: gameSchema }));
+    await emit(path, layout({ title, description, keywords, path, site, base, image: socialImages[game.gameId] || game.image, imageWidth: socialImages[game.gameId] ? 1200 : 768, imageHeight: socialImages[game.gameId] ? 630 : 432, imageAlt: `Silence ${game.name} Script`, body: gamePage({ game, site, base }), schema: gameSchema }));
   }
   for (const project of projects) {
     if (project.image) await stat(resolve(root, 'public', project.image));
