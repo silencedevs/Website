@@ -11,7 +11,7 @@ export function externalLinks(html, siteUrl) {
     return `<a${clean} target="_blank" rel="noopener noreferrer">`;
   });
 }
-export function layout({ title, description, path = '', body, site, base, image, imageAlt, noindex = false, schema, heroAssets, navigationHtml, hasProjects }) {
+export function layout({ title, description, path = '', body, site, base, image, imageAlt, noindex = false, schema, heroAssets, navigationHtml, hasProjects, keywords }) {
   const href = (suffix = '') => `${base}${suffix}`;
   const absolute = (suffix = '') => new URL(suffix, site.url).href;
   const shareImage = absolute(image || 'assets/social-preview.png');
@@ -19,6 +19,7 @@ export function layout({ title, description, path = '', body, site, base, image,
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer">
 <title>${escape(title)}</title><meta name="description" content="${escape(description)}">
+${keywords && keywords.length ? `<meta name="keywords" content="${escape(keywords.join(', '))}">` : ''}
 <link rel="canonical" href="${escape(absolute(path))}"><meta name="robots" content="${noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}">
 <meta name="theme-color" content="#0b0b0c"><meta name="color-scheme" content="dark">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Silence"><meta property="og:locale" content="en_US">
