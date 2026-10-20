@@ -40,7 +40,7 @@ for (const url of ['https://silencedevs.github.io/Website/', 'https://silencedev
         assert.match(status.textContent, /Background unavailable/);
         assert.match(home, /scripts\/background.js" defer/);
       }
-      assert.equal(games.length, 2);
+      assert.equal(games.length, 3);
       assert.match(home, /id="hero-title"[^>]*>Silence<\/h1>/);
       assert.ok(home.indexOf('id="loader"') < home.indexOf('id="games"'));
       assert.ok(home.indexOf('id="questions"') < home.indexOf('id="about"'));
