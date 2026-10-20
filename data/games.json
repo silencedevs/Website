@@ -2,14 +2,15 @@
   {
     "gameId": 3623096087,
     "status": "available",
+    "version": "4.3.0",
     "summary": "Our Muscle Legends Scripts is considered best on the market, it has basically everything you need. More on features.",
     "features": ["Auto Farm", "Auto Boss", "Fast Farming"],
-    "source": "Scripts/MuscleLegends/Main.luau",
-    "additionalSources": ["Scripts/MuscleLegends/Farming.luau"]
+    "source": "Scripts/MuscleLegends/"
   },
   {
     "gameId": 75992362647444,
     "status": "outdated",
+    "version": "1.0.0",
     "summary": "This Script is a full Farming Script for Tap Simulator, its outdated tho.",
     "features": ["Auto Hatch", "Auto Craft", "Auto Enchant"],
     "source": "Scripts/tapsim.luau"

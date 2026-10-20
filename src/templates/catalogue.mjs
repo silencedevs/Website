@@ -64,7 +64,8 @@ export function gamesIndex({ site, games, base, gamesHtml }) {
 }
 
 export function gamePage({ game, site, base }) {
-  const source = game.source ? `${site.repository}/blob/main/${game.source}` : `${site.repository}/blob/main/Loader/Supported.luau`;
+  const source = game.source ? `${site.repository}/${game.source.endsWith('/') ? 'tree' : 'blob'}/main/${game.source}` : `${site.repository}/blob/main/Loader/Supported.luau`;
+  const status = `${statusLabel(game)}${game.version ? ` · v${e(game.version)}` : ''}`;
   return `<div class="frame">
     <header class="page-intro"><a class="back" href="${base}games/">Back to all games</a><h1>${e(game.name)} Script</h1><p>${e(game.summary)}</p></header>
     <div class="detail-grid">
@@ -75,7 +76,7 @@ export function gamePage({ game, site, base }) {
       </div>
       <section aria-labelledby="features-title"><h2 id="features-title">Script features</h2>
         <article class="markdown-window"><div class="markdown-content">${game.documentation}</div></article>
-        <p class="detail-status">${statusLabel(game)}. Check Discord for compatibility with the latest game update.</p>
+        <p class="detail-status">${status}. Check Discord for compatibility with the latest game update.</p>
       </section>
     </div>
   </div>${loader(site, game)}`;
