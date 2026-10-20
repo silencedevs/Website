@@ -1262,7 +1262,7 @@ html { scrollbar-color: var(--accent-deep, #8a0000) rgba(255,0,0,.08); scrollbar
   .game-entry.game-tile:hover .game-tile-picture img { scale:1.04; }
 }
 
-.studio-desktop-nav a { position:relative; transition:color .4s cubic-bezier(.25,.1,.25,1); }
+.studio-desktop-nav a { position:relative; transition:color .22s cubic-bezier(.25,.1,.25,1); }
 .studio-desktop-nav a::after {
   content:'';
   position:absolute;
@@ -1272,11 +1272,10 @@ html { scrollbar-color: var(--accent-deep, #8a0000) rgba(255,0,0,.08); scrollbar
   background:#ff0000;
   transform:scaleX(0);
   transform-origin:right;
-  transition:transform .5s cubic-bezier(.65,.05,.36,1);
+  transition:transform .24s cubic-bezier(.2,.8,.3,1);
   will-change:transform;
 }
 .studio-desktop-nav a:hover::after,.studio-desktop-nav a[aria-current='true']::after { transform:scaleX(1); transform-origin:left; }
-.studio-desktop-nav a { transition:color .4s cubic-bezier(.25,.1,.25,1); }
 
 .faq-list summary { transition:background-color .25s cubic-bezier(.2,.7,.3,1); }
 .faq-list summary::after { transition:rotate .38s cubic-bezier(.2,.7,.3,1), top .38s cubic-bezier(.2,.7,.3,1); }
