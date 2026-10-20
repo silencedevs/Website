@@ -58,7 +58,8 @@ async function renderPng(svgPath, pngPath) {
   try {
     await run('rsvg-convert', ['-w', String(WIDTH), '-h', String(HEIGHT), '-o', pngPath, svgPath]);
     return true;
-  } catch {
+  } catch (error) {
+    console.warn(`social-images: could not render ${svgPath} (${error.message}). Install librsvg2-bin to enable social embed images.`);
     return false;
   }
 }

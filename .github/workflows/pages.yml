@@ -21,6 +21,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci --ignore-scripts
+      - name: Install SVG renderer for social embeds
+        run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
       - name: Refresh community counts
         if: github.event_name != 'pull_request'
         run: npm run refresh:stats
