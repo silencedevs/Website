@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
-import { resolve, dirname } from 'node:path';
+import { createHash } from 'node:crypto';
+import { dirname, resolve } from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 
@@ -23,6 +24,8 @@ const wrap = (text, maxChars, maxLines) => {
 };
 
 const dataUri = async (path) => `data:image/png;base64,${(await readFile(path)).toString('base64')}`;
+
+const contentHash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex').slice(0, 10);
 
 function brandMark(logo, x, y, size) {
   if (!logo) return '';
@@ -122,6 +125,10 @@ export async function generateSocialImages({ root, out, games, projects = [], ba
   const available = games.filter((game) => game.status === 'available').length;
   const outdated = games.filter((game) => game.status === 'outdated').length;
   const total = games.length;
+  // Content-addressed filenames: link preview services (Discord, Slack, ...) cache images by URL,
+  // so the URL has to change whenever the game count or status changes.
+  const gamesFile = `games-${contentHash(games.map((game) => [game.gameId, game.name, game.status]))}`;
+  const projectsFile = `projects-${contentHash(projects.map((project) => [project.slug, project.name]))}`;
 
   const results = {};
 
@@ -136,9 +143,9 @@ export async function generateSocialImages({ root, out, games, projects = [], ba
 
   if (projects.length) {
     const projectsSvg = projectsFrame({ projects, logo });
-    const projectsPath = resolve(assetsDir, 'projects.svg');
+    const projectsPath = resolve(assetsDir, `${projectsFile}.svg`);
     await writeFile(projectsPath, projectsSvg);
-    if (await renderPng(projectsPath, resolve(assetsDir, 'projects.png'))) results.projects = 'assets/social/projects.png';
+    if (await renderPng(projectsPath, resolve(assetsDir, `${projectsFile}.png`))) results.projects = `assets/social/${projectsFile}.png`;
     await rm(projectsPath, { force: true });
   }
 
@@ -154,9 +161,9 @@ export async function generateSocialImages({ root, out, games, projects = [], ba
     plus: games.length > 3 ? games.length - shownIcons.length : 0,
     logo,
   });
-  const indexPath = resolve(assetsDir, 'games.svg');
+  const indexPath = resolve(assetsDir, `${gamesFile}.svg`);
   await writeFile(indexPath, indexSvg);
-  if (await renderPng(indexPath, resolve(assetsDir, 'games.png'))) results.games = `assets/social/games.png`;
+  if (await renderPng(indexPath, resolve(assetsDir, `${gamesFile}.png`))) results.games = `assets/social/${gamesFile}.png`;
   await rm(indexPath, { force: true });
 
   for (const game of games) {
