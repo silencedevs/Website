@@ -39,20 +39,22 @@ const titleSize = (title, maxWidth) => {
   return size;
 };
 
-function frame({ title, subtitle, lines, icons, plus = 0, logo }) {
-  const size = 190;
-  const gap = 26;
+function frame({ title, subtitle, lines, icons, plus = 0, logo, columns = 0, iconSize = 190, iconGap = 26, iconY = 220 }) {
+  const size = iconSize;
+  const gap = iconGap;
   const slots = icons.length + (plus > 0 ? 1 : 0);
-  const startX = 1180 - size - (slots - 1) * (size + gap);
+  const cols = Math.max(1, columns > 0 ? Math.min(columns, Math.max(slots, 1)) : slots);
+  const startX = 1180 - size - (cols - 1) * (size + gap);
+  const slotAt = (index) => ({ x: startX + (index % cols) * (size + gap), y: iconY + Math.floor(index / cols) * (size + gap) });
   const titleFont = titleSize(title, 900);
   const titleY = titleFont < 96 ? 168 : 190;
   const iconTiles = icons.map((icon, index) => {
-    const x = startX + index * (size + gap);
-    return `<clipPath id="clip${index}"><rect x="${x}" y="220" width="${size}" height="${size}" rx="30"/></clipPath><image href="${icon}" x="${x}" y="220" width="${size}" height="${size}" clip-path="url(#clip${index})" preserveAspectRatio="xMidYMid slice"/><rect x="${x}" y="220" width="${size}" height="${size}" rx="30" fill="none" stroke="#ffffff22" stroke-width="2"/>`;
+    const { x, y } = slotAt(index);
+    return `<clipPath id="clip${index}"><rect x="${x}" y="${y}" width="${size}" height="${size}" rx="30"/></clipPath><image href="${icon}" x="${x}" y="${y}" width="${size}" height="${size}" clip-path="url(#clip${index})" preserveAspectRatio="xMidYMid slice"/><rect x="${x}" y="${y}" width="${size}" height="${size}" rx="30" fill="none" stroke="#ffffff22" stroke-width="2"/>`;
   }).join('');
   const plusTile = plus > 0 ? (() => {
-    const x = startX + icons.length * (size + gap);
-    return `<rect x="${x}" y="220" width="${size}" height="${size}" rx="30" fill="#ffffff0d" stroke="#ffffff22" stroke-width="2"/><text x="${x + size / 2}" y="${220 + size / 2 + 20}" text-anchor="middle" font-family="${FONT}" font-size="56" font-weight="700" fill="#f6f5f2">+${plus}</text>`;
+    const { x, y } = slotAt(icons.length);
+    return `<rect x="${x}" y="${y}" width="${size}" height="${size}" rx="30" fill="#ffffff0d" stroke="#ffffff22" stroke-width="2"/><text x="${x + size / 2}" y="${y + size / 2 + 20}" text-anchor="middle" font-family="${FONT}" font-size="56" font-weight="700" fill="#f6f5f2">+${plus}</text>`;
   })() : '';
   const textLines = lines.map((line, index) => `<text x="80" y="${448 + index * 46}" font-family="${FONT}" font-size="34" fill="#c9c8c6">${escapeXml(line)}</text>`).join('');
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}">
@@ -125,10 +127,6 @@ export async function generateSocialImages({ root, out, games, projects = [], ba
   const available = games.filter((game) => game.status === 'available').length;
   const outdated = games.filter((game) => game.status === 'outdated').length;
   const total = games.length;
-  // Content-addressed filenames: link preview services (Discord, Slack, ...) cache images by URL,
-  // so the URL has to change whenever the game count or status changes.
-  const gamesFile = `games-${contentHash(games.map((game) => [game.gameId, game.name, game.status]))}`;
-  const projectsFile = `projects-${contentHash(projects.map((project) => [project.slug, project.name]))}`;
 
   const results = {};
 
@@ -143,24 +141,34 @@ export async function generateSocialImages({ root, out, games, projects = [], ba
 
   if (projects.length) {
     const projectsSvg = projectsFrame({ projects, logo });
+    // Content-addressed filenames: link preview services (Discord, Slack, ...) cache images by URL,
+    // so the URL changes whenever the rendered preview changes.
+    const projectsFile = `projects-${contentHash(projectsSvg)}`;
     const projectsPath = resolve(assetsDir, `${projectsFile}.svg`);
     await writeFile(projectsPath, projectsSvg);
     if (await renderPng(projectsPath, resolve(assetsDir, `${projectsFile}.png`))) results.projects = `assets/social/${projectsFile}.png`;
     await rm(projectsPath, { force: true });
   }
 
-  const indexIcons = await Promise.all(games.slice(0, 3).map(async (game) => {
+  const maxTiles = 4;
+  const overflow = total > maxTiles;
+  const indexIcons = await Promise.all(games.slice(0, overflow ? maxTiles - 1 : maxTiles).map(async (game) => {
     try { return await dataUri(resolve(root, 'public', game.icon)); } catch { return ''; }
   }));
-  const shownIcons = indexIcons.filter(Boolean).slice(0, games.length > 3 ? 3 : games.length);
+  const shownIcons = indexIcons.filter(Boolean);
   const indexSvg = frame({
     title: `${total} Games`,
     subtitle: `${available} Available · ${outdated} Outdated`,
-    lines: games.length > 3 ? [`+${games.length - shownIcons.length} more games in the library`] : ['Browse the full Silence game library'],
+    lines: [overflow ? `+${total - shownIcons.length} more games in the library` : 'Browse the full Silence game library'],
     icons: shownIcons,
-    plus: games.length > 3 ? games.length - shownIcons.length : 0,
+    plus: overflow ? total - shownIcons.length : 0,
+    columns: 2,
+    iconSize: 168,
+    iconGap: 20,
+    iconY: 150,
     logo,
   });
+  const gamesFile = `games-${contentHash(indexSvg)}`;
   const indexPath = resolve(assetsDir, `${gamesFile}.svg`);
   await writeFile(indexPath, indexSvg);
   if (await renderPng(indexPath, resolve(assetsDir, `${gamesFile}.png`))) results.games = `assets/social/${gamesFile}.png`;
