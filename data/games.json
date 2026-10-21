@@ -2,6 +2,7 @@
   {
     "gameId": 3623096087,
     "status": "available",
+    "top": true,
     "version": "4.3.0",
     "summary": "Automate rebirths, strength training and boss farming, hatch and evolve pets, and track your farming progress.",
     "features": [
@@ -14,6 +15,7 @@
   {
     "gameId": 75992362647444,
     "status": "outdated",
+    "top": false,
     "version": "1.0.0",
     "summary": "Archived features include Auto Click, Auto Rebirth, Auto Hatch, golden and rainbow pet crafting, and pet enchanting. Outdated; these features may no longer work.",
     "features": [
@@ -26,6 +28,7 @@
   {
     "gameId": 107778070777162,
     "status": "available",
+    "top": true,
     "version": "1.0.0",
     "summary": "Automate egg collection, placement and hatching, manage and fuse pets, filter sales, buy upgrades, and find eggs with ESP.",
     "features": [
@@ -38,6 +41,7 @@
   {
     "gameId": 72858262610964,
     "status": "available",
+    "top": true,
     "version": "1.0.0",
     "summary": "Automate tapping, rebirths and egg hatching, filter pet deletion, craft and enchant pets, and manage rewards, potions and minigames.",
     "features": [

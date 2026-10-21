@@ -613,6 +613,35 @@ code {
 .detail-side .actions {
   margin:0;
 }
+.game-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.game-actions > * {
+  flex:1 1 0;
+  min-width:max-content;
+}
+.game-actions .action-host {
+  display:flex;
+}
+.game-actions .action-host button {
+  width:100%;
+  min-height:56px;
+  padding:0 18px;
+  font-size:17px;
+  white-space:nowrap;
+}
+.game-actions .button {
+  min-height:56px;
+  padding:12px 18px;
+  white-space:nowrap;
+}
+@media(max-width:480px) {
+  .game-actions > * {
+    flex-basis:100%;
+  }
+}
 .detail-side .source-note {
   margin:0;
   margin-top:auto;

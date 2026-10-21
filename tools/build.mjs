@@ -38,11 +38,11 @@ export async function build({ output = 'dist', siteUrl = process.env.SITE_URL, p
   const cache = await read('data/roblox-cache.json');
   const ids = new Set();
   const games = data.map((input) => {
-    const game = { status: 'pending', summary: 'Feature details are pending. Ask in Discord for current script support.', features: [], ...input };
+    const game = { status: 'pending', top: true, summary: 'Feature details are pending. Ask in Discord for current script support.', features: [], ...input };
     if (!Number.isSafeInteger(game.gameId) || game.gameId <= 0 || ids.has(game.gameId)) throw new Error(`Invalid or duplicate game ID: ${game.gameId}`);
     ids.add(game.gameId);
     if (!cache[game.gameId]?.name) throw new Error(`Run npm run refresh:games to resolve Roblox game ${game.gameId}.`);
-    if (!['available', 'outdated', 'pending'].includes(game.status) || !Array.isArray(game.features) || !game.features.every((item) => typeof item === 'string') || typeof game.summary !== 'string') throw new Error(`Invalid game content for ${game.gameId}`);
+    if (!['available', 'outdated', 'pending'].includes(game.status) || typeof game.top !== 'boolean' || !Array.isArray(game.features) || !game.features.every((item) => typeof item === 'string') || typeof game.summary !== 'string') throw new Error(`Invalid game content for ${game.gameId}`);
     if (game.status === 'available' && (!game.source || !game.features.length)) throw new Error('Available games need source evidence and features.');
     return { ...cache[game.gameId], ...game, name: game.displayName || cleanGameName(cache[game.gameId].name) };
   });
@@ -87,6 +87,7 @@ export async function build({ output = 'dist', siteUrl = process.env.SITE_URL, p
     tertiaryCtaHref: site.discord,
   };
   const heroHtml = `<div id="silence-hero" data-props="${escape(JSON.stringify(heroProps))}">${hero.renderHero(heroProps)}</div>`;
+  const topGames = games.filter((game) => game.top);
   const organisation = { '@type': 'Organization', name: 'Silence', url: site.url, logo: new URL('assets/silence.webp', site.url).href, sameAs: [site.repository, site.discord, site.profile].filter(Boolean) };
   const faq = [
     { q: 'Is Silence free?', a: 'Yes. Silence scripts are free, and the source code is available on GitHub.' },
@@ -100,7 +101,7 @@ export async function build({ output = 'dist', siteUrl = process.env.SITE_URL, p
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) },
   ];
   const homeKeywords = ['Silence', 'Silence script', 'Silence scripts', 'Silence Roblox script', 'free Roblox scripts', 'open source Roblox scripts', 'Roblox script hub', 'Roblox script executor', ...games.flatMap((game) => [`${game.name} script`, game.name])];
-  await emit('', layout({ title: 'Silence | Open Source Roblox Scripts', description, keywords: homeKeywords, image: socialImages.home, imageWidth: 1200, imageHeight: 630, imageAlt: 'Silence, open source Roblox scripts', body: home({ site, games, projects, stats, base, heroHtml, projectsHtml: hero.renderProjectCards({ projects, base }), gamesHtml: hero.renderGameCards({ games: games.slice(0, 4), base }) }), site, base, heroAssets: { css: hero.css }, schema: homeSchema }));
+  await emit('', layout({ title: 'Silence | Open Source Roblox Scripts', description, keywords: homeKeywords, image: socialImages.home, imageWidth: 1200, imageHeight: 630, imageAlt: 'Silence, open source Roblox scripts', body: home({ site, games, projects, stats, base, heroHtml, topGames, projectsHtml: hero.renderProjectCards({ projects, base }), gamesHtml: hero.renderGameCards({ games: topGames, base }) }), site, base, heroAssets: { css: hero.css }, schema: homeSchema }));
   const gamesIndexDescription = 'The complete Silence game library. Search every supported game and check script status.';
   const gamesIndexKeywords = ['Silence game library', 'Silence scripts', 'Roblox scripts', 'Roblox script list', ...games.map((game) => `${game.name} script`)];
   const gamesIndexSchema = [

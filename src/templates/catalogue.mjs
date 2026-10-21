@@ -23,14 +23,14 @@ export function loader(site, game) {
   </section>`;
 }
 
-export function home({ site, games, projects, stats, base, heroHtml, gamesHtml, projectsHtml }) {
+export function home({ site, games, projects, stats, base, heroHtml, gamesHtml, topGames, projectsHtml }) {
   return `${heroHtml}
   ${loader(site)}
-  <section class="section frame" id="games" aria-labelledby="games-title">
+  ${topGames.length ? `<section class="section frame" id="games" aria-labelledby="games-title">
     <div class="section-heading section-heading-action"><h2 id="games-title">Top Games</h2><a class="view-all-link" href="${base}games/">View all games</a></div>
     <div class="game-list" id="game-list">${gamesHtml}</div>
     <p class="source-note">Check <a href="${e(site.discord)}" rel="noreferrer">Discord</a> for current compatibility and support.</p>
-  </section>
+  </section>` : ''}
   ${projects.length ? `<section class="section frame" id="projects" aria-labelledby="projects-title"><div class="section-heading section-heading-action"><h2 id="projects-title">Other Projects</h2><a class="view-all-link" href="${base}projects/">View all projects</a></div><div class="game-list">${projectsHtml}</div></section>` : ''}
   <section id="questions" class="section frame faq-layout" aria-labelledby="faq-title">
     <h2 id="faq-title">Before you begin</h2>
@@ -80,7 +80,7 @@ export function gamePage({ game, site, base }) {
     <div class="detail-grid">
       <div class="detail-side">
         <img src="${base}${game.image}" width="768" height="432" alt="${e(game.name)} game artwork" fetchpriority="high">
-        <div class="actions">${action('View on Roblox', game.url)}<a class="text-link" href="${e(source)}" rel="noreferrer">View Source Code</a></div>
+        <div class="actions game-actions">${action('Get Script', '#loader')}<a class="button secondary" href="${e(game.url)}" rel="noreferrer">View on Roblox</a><a class="button secondary" href="${e(source)}" rel="noreferrer">View Source Code</a></div>
         <p class="source-note">Game artwork by ${e(game.creator)}. <a href="${e(game.url)}" rel="noreferrer">Original game page</a>.</p>
       </div>
       <section aria-labelledby="features-title"><h2 id="features-title">Script features</h2>
