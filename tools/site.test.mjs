@@ -27,6 +27,20 @@ for (const url of ['https://silencedevs.github.io/Website/', 'https://silencedev
       await walk(out);
       assert.equal(files.length, games.length + projects.length + 3 + (projects.length ? 1 : 0));
       const home = await readFile(resolve(out, 'index.html'), 'utf8');
+      assert.ok(home.includes(`<meta name="description" content="${site.description}">`));
+      assert.ok(home.includes(`<p>${site.description}</p>`));
+      assert.doesNotMatch(home, /privately maintained hobby project|private hobby project/);
+      const favicon = await readFile(resolve(out, 'assets/favicon.png'));
+      assert.equal(favicon.readUInt32BE(16), 96);
+      assert.equal(favicon.readUInt32BE(20), 96);
+      assert.ok((await stat(resolve(out, 'favicon.ico'))).size > 0);
+      for (const game of games) {
+        const detail = await readFile(resolve(out, `games/${game.gameId}/index.html`), 'utf8');
+        assert.ok(detail.includes(`<meta property="og:image" content="${new URL(game.image, site.url).href}">`));
+        const description = detail.match(/<meta name="description" content="([^"]+)"/)[1];
+        assert.ok(description.indexOf(game.summary) < description.indexOf('Free and open source.'));
+        assert.ok(detail.includes('max-image-preview:large'));
+      }
       if (url.endsWith('/Website/')) {
         const attempts = [], control = {}, status = {}, documentElement = { dataset: {} };
         const canvas = { cloneNode() { return { getContext(version) { attempts.push(version); return null; }, replaceWith() {} }; }, replaceWith() {} };

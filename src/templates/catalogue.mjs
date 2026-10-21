@@ -35,7 +35,7 @@ export function home({ site, games, projects, stats, base, heroHtml, gamesHtml, 
   <section id="questions" class="section frame faq-layout" aria-labelledby="faq-title">
     <h2 id="faq-title">Before you begin</h2>
     <div class="faq-list">
-      <details><summary>Is Silence free?</summary><p>Yes. Silence is a private hobby project. The scripts are available as open source on <a href="${e(site.repository)}" rel="noreferrer">GitHub</a>.</p></details>
+      <details><summary>Is Silence free?</summary><p>Yes. Silence scripts are free, and the source code is available on <a href="${e(site.repository)}" rel="noreferrer">GitHub</a>.</p></details>
       <details><summary>Where can I get help?</summary><p>Join the <a href="${e(site.discord)}" rel="noreferrer">Silence Discord server</a> for questions about setup, keys and game support. This website does not request your Roblox login.</p></details>
       <details><summary>What does Outdated mean?</summary><p>An outdated script is kept for source reference. Its archive lists historical features and does not provide execution instructions.</p></details>
       <details><summary>Will every script work after a game update?</summary><p>Game updates can affect script compatibility. Check the current discussion in Discord and review the source before running a script.</p></details>
@@ -76,7 +76,7 @@ export function gamePage({ game, site, base }) {
   const source = game.source ? `${site.repository}/${game.source.endsWith('/') ? 'tree' : 'blob'}/main/${game.source}` : `${site.repository}/blob/main/Loader/Supported.luau`;
   const status = `${statusLabel(game)}${game.version ? ` · v${e(game.version)}` : ''}`;
   return `<div class="frame">
-    <header class="page-intro"><a class="back" href="${base}games/">Back to all games</a><h1>${e(game.name)} Script</h1><p>${e(game.summary)}</p></header>
+    <header class="page-intro"><a class="back" href="${base}games/">Back to all games</a><h1>${e(game.name)} Script</h1><p>${e(game.summary)}</p><p>Free and open source. Browse the code on GitHub and join our Discord community.</p></header>
     <div class="detail-grid">
       <div class="detail-side">
         <img src="${base}${game.image}" width="768" height="432" alt="${e(game.name)} game artwork" fetchpriority="high">
@@ -95,7 +95,7 @@ export function gamePage({ game, site, base }) {
 function communityStats({ site, games, stats }) {
   const number = (value) => Number.isSafeInteger(value) && value >= 0 ? new Intl.NumberFormat('en-US', value >= 10000 ? { notation: 'compact', maximumFractionDigits: 1 } : {}).format(value) : 'Unavailable';
   const metric = (label, value) => `<div class="community-stat"><dd>${value}</dd><dt>${label}</dt></div>`;
-  return `<section id="about" class="section frame about-grid" aria-labelledby="about-title"><div class="about-copy"><div class="community-top"><h2 id="about-title">About Silence</h2></div><p>Silence is a privately maintained hobby project creating free, open source Roblox scripts. Explore the source, check game support and meet the community on Discord.</p><div class="actions">${action('Visit GitHub', site.repository)}<a class="text-link" href="${e(site.discord)}" rel="noreferrer">Join Discord</a></div></div><div><dl class="community-stats">${metric('Games', number(games.length))}${metric('Discord Members', number(stats.members?.value))}${metric('GitHub Stars', number(stats.stars?.value))}${metric('Uptime', '100%')}</dl></div></section>`;
+  return `<section id="about" class="section frame about-grid" aria-labelledby="about-title"><div class="about-copy"><div class="community-top"><h2 id="about-title">About Silence</h2></div><p>${e(site.description)}</p><div class="actions">${action('Visit GitHub', site.repository)}<a class="text-link" href="${e(site.discord)}" rel="noreferrer">Join Discord</a></div></div><div><dl class="community-stats">${metric('Games', number(games.length))}${metric('Discord Members', number(stats.members?.value))}${metric('GitHub Stars', number(stats.stars?.value))}${metric('Uptime', '100%')}</dl></div></section>`;
 }
 
 export function projectPage({ project, base }) {

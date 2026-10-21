@@ -16,7 +16,7 @@ createServer(async (req, res) => {
     if (path !== out && !path.startsWith(`${out}/`)) throw new Error('outside root');
     if ((await stat(path)).isDirectory()) path = resolve(path, 'index.html');
     const body = await readFile(path);
-    res.writeHead(200, { 'Content-Type': types[extname(path)] || 'application/octet-stream', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });
+    res.writeHead(200, { 'Content-Type': extname(path) === '.ico' ? 'image/x-icon' : types[extname(path)] || 'application/octet-stream', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });
     res.end(body);
   } catch {
     res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });

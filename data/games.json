@@ -3,7 +3,7 @@
     "gameId": 3623096087,
     "status": "available",
     "version": "4.3.0",
-    "summary": "Our Muscle Legends Scripts is considered best on the market, it has basically everything you need. More on features.",
+    "summary": "Automate rebirths, strength training and boss farming, hatch and evolve pets, and track your farming progress.",
     "features": ["Auto Farm", "Auto Boss", "Fast Farming"],
     "source": "Scripts/MuscleLegends/"
   },
@@ -11,7 +11,7 @@
     "gameId": 75992362647444,
     "status": "outdated",
     "version": "1.0.0",
-    "summary": "This Script is a full Farming Script for Tap Simulator, its outdated tho.",
+    "summary": "Archived features include Auto Click, Auto Rebirth, Auto Hatch, golden and rainbow pet crafting, and pet enchanting. Outdated; these features may no longer work.",
     "features": ["Auto Hatch", "Auto Craft", "Auto Enchant"],
     "source": "Scripts/tapsim.luau"
   },
@@ -19,7 +19,7 @@
     "gameId": 107778070777162,
     "status": "available",
     "version": "1.0.0",
-    "summary": "Automated egg farming, placement, hatching, pet management, filtered selling, upgrades, event assistance and ESP.",
+    "summary": "Automate egg collection, placement and hatching, manage and fuse pets, filter sales, buy upgrades, and find eggs with ESP.",
     "features": ["Auto Collect/Place/Hatch", "Pet Management", "ESP"],
     "source": "Scripts/stealaneg.luau"
   }

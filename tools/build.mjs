@@ -74,7 +74,7 @@ export async function build({ output = 'dist', siteUrl = process.env.SITE_URL, p
     await writeFile(file, content);
     if (indexable) paths.push(path);
   };
-  const description = 'Open source Roblox scripts by Silence. Browse supported games, review script features and join the Silence Discord community.';
+  const description = site.description;
   const heroProps = {
     title: 'Silence',
     logoSrc: `${base}assets/silence.webp`,
@@ -89,7 +89,7 @@ export async function build({ output = 'dist', siteUrl = process.env.SITE_URL, p
   const heroHtml = `<div id="silence-hero" data-props="${escape(JSON.stringify(heroProps))}">${hero.renderHero(heroProps)}</div>`;
   const organisation = { '@type': 'Organization', name: 'Silence', url: site.url, logo: new URL('assets/silence.webp', site.url).href, sameAs: [site.repository, site.discord, site.profile].filter(Boolean) };
   const faq = [
-    { q: 'Is Silence free?', a: 'Yes. Silence is a private hobby project. The scripts are available as open source on GitHub.' },
+    { q: 'Is Silence free?', a: 'Yes. Silence scripts are free, and the source code is available on GitHub.' },
     { q: 'Where can I get help?', a: 'Join the Silence Discord server for questions about setup, keys and game support. This website does not request your Roblox login.' },
     { q: 'What does Outdated mean?', a: 'An outdated script is kept for source reference. Its archive lists historical features and does not provide execution instructions.' },
     { q: 'Will every script work after a game update?', a: 'Game updates can affect script compatibility. Check the current discussion in Discord and review the source before running a script.' },
@@ -111,18 +111,21 @@ export async function build({ output = 'dist', siteUrl = process.env.SITE_URL, p
   await emit('games/', layout({ title: 'All Games | Open Source Roblox Scripts by Silence', description: gamesIndexDescription, keywords: gamesIndexKeywords, path: 'games/', image: socialImages.games, imageWidth: 1200, imageHeight: 630, imageAlt: `${games.length} Silence Roblox scripts in the game library`, body: gamesIndex({ site, games, base, gamesHtml: hero.renderGameCards({ games, base }) }), site, base, heroAssets: { css: hero.css }, schema: gamesIndexSchema }));
   for (const game of games) {
     await stat(resolve(root, 'public', game.image));
+    const artwork = await readFile(resolve(root, 'public', game.image));
+    const imageWidth = artwork.readUInt32BE(16);
+    const imageHeight = artwork.readUInt32BE(20);
     const path = `games/${game.gameId}/`;
     const title = `Silence ${game.name} Script${game.status === 'outdated' ? ' (Outdated)' : ''}`;
     const featureText = game.features.length ? game.features.join(', ') : '';
-    const description = `Silence ${game.name} Script${featureText ? ` with ${featureText}` : ''}. Free open source Roblox script by Silence: review the features, view the source code and open ${game.name} on Roblox.`;
+    const description = `Silence ${game.name} Script: ${game.summary} Free and open source. Browse the code on GitHub and join our Discord community.`;
     const keywords = [`Silence ${game.name} Script`, `Silence ${game.name} script`, `${game.name} Script`, `${game.name} script`, `${game.name} scripts`, `${game.name} roblox script`, `silence script ${game.name}`, `silence ${game.name} script`, `silence script`, 'Silence script', 'Silence scripts', 'Roblox script', 'free roblox script', 'open source roblox script', ...game.features].filter(Boolean);
     const imageUrl = new URL(game.image, site.url).href;
     const gameSchema = [
-      { '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url: new URL(path, site.url).href, inLanguage: 'en', keywords: keywords.join(', '), primaryImageOfPage: { '@type': 'ImageObject', url: imageUrl, width: 768, height: 432 }, isPartOf: { '@type': 'WebSite', name: 'Silence', url: site.url } },
+      { '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url: new URL(path, site.url).href, inLanguage: 'en', keywords: keywords.join(', '), image: imageUrl, thumbnailUrl: new URL(game.icon, site.url).href, primaryImageOfPage: { '@type': 'ImageObject', url: imageUrl, contentUrl: imageUrl, caption: `${game.name} game artwork`, representativeOfPage: true }, isPartOf: { '@type': 'WebSite', name: 'Silence', url: site.url } },
       { '@context': 'https://schema.org', '@type': 'VideoGame', name: game.name, url: game.url, image: imageUrl, applicationCategory: 'Game', author: { '@type': 'Organization', name: game.creator }, ...(featureText ? { featureList: game.features } : {}) },
       { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Silence', item: site.url }, { '@type': 'ListItem', position: 2, name: 'Games', item: new URL('games/', site.url).href }, { '@type': 'ListItem', position: 3, name: game.name, item: new URL(path, site.url).href }] },
     ];
-    await emit(path, layout({ title, description, keywords, path, site, base, image: socialImages[game.gameId] || game.image, imageWidth: socialImages[game.gameId] ? 1200 : 768, imageHeight: socialImages[game.gameId] ? 630 : 432, imageAlt: `Silence ${game.name} Script`, body: gamePage({ game, site, base }), schema: gameSchema }));
+    await emit(path, layout({ title, description, keywords, path, site, base, image: game.image, imageWidth, imageHeight, imageAlt: `${game.name} game artwork`, body: gamePage({ game, site, base }), schema: gameSchema }));
   }
   if (projects.length) {
     const projectsIndexDescription = 'Projects by Silence. Explore the features, source code and documentation for everything Silence has built beyond game scripts.';

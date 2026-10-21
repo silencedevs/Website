@@ -28,7 +28,7 @@ ${keywords && keywords.length ? `<meta name="keywords" content="${escape(keyword
 <meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${escape(absolute(path))}">
 <meta property="og:image" content="${escape(shareImage)}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="${shareWidth}"><meta property="og:image:height" content="${shareHeight}"><meta property="og:image:alt" content="${escape(imageAlt || (image ? title : 'Silence with the red Silence emblem'))}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(title)}"><meta name="twitter:description" content="${escape(description)}"><meta name="twitter:image" content="${escape(shareImage)}">
-<link rel="icon" type="image/png" sizes="64x64" href="${href('assets/favicon.png')}"><link rel="apple-touch-icon" href="${href('assets/apple-touch-icon.png')}">
+<link rel="icon" type="image/png" sizes="96x96" href="${href('assets/favicon.png')}"><link rel="alternate icon" type="image/x-icon" href="${href('favicon.ico')}"><link rel="apple-touch-icon" href="${href('assets/apple-touch-icon.png')}">
 <link rel="preload" href="${href('assets/inter-variable.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${href('styles/site.css')}"><script src="${href('scripts/site.js')}" defer></script><script src="${href('scripts/background.js')}" defer></script>
 ${heroAssets ? `<link rel="stylesheet" href="${href(`ui/${heroAssets.css}`)}">` : ''}
