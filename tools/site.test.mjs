@@ -137,3 +137,61 @@ test('VincentHosting shader preserves the reference geometry and only maps green
   const reference = await readFile(new URL('../docs/shader-reference.md', import.meta.url), 'utf8');
   assert.equal(createHash('sha256').update(restored).digest('hex'), reference.match(/SHA256: `([a-f0-9]+)`/)[1]);
 });
+
+test('touch backgrounds animate at the original density without pointer or gesture input', async () => {
+  const source = (await readFile(new URL('../src/scripts/background.js', import.meta.url), 'utf8')).replace("import { fragmentShader } from './background-shader.js';", "const fragmentShader = ''; ");
+  for (const maxTouchPoints of [0, 5]) {
+    const events = new Map(), uniforms = new Map();
+    let frame, observer, drawCount = 0;
+    const gl = new Proxy({
+      getShaderParameter: () => true, getProgramParameter: () => true,
+      getUniformLocation: (_, name) => name,
+      uniform1f: (name, value) => uniforms.set(name, value),
+      uniform2f: (name, x, y) => uniforms.set(name, [x, y]),
+      drawArrays: () => drawCount++,
+    }, { get: (target, name) => target[name] || (() => ({})) });
+    const canvas = {
+      width: 300, height: 150, clientWidth: 390, clientHeight: 844,
+      cloneNode() { return this; }, replaceWith() {}, getContext: () => gl,
+      getBoundingClientRect: () => ({ left: 0, top: 0, width: 390, height: 844 }),
+      addEventListener() {}, removeEventListener() {},
+    };
+    const control = { setAttribute() {} }, status = {};
+    const document = {
+      documentElement: { dataset: {} },
+      querySelector: selector => selector === '.background-motion-control' ? control : selector === '#background-status' ? status : canvas,
+      addEventListener() {}, removeEventListener() {},
+    };
+    runInNewContext(source, {
+      document, navigator: { maxTouchPoints }, devicePixelRatio: 3,
+      // A touch device can report a fine pointer when an external mouse is attached.
+      matchMedia: query => ({ matches: query.includes('pointer: fine'), addEventListener() {}, removeEventListener() {} }),
+      ResizeObserver: class { constructor(callback) { observer = callback; } observe() {} disconnect() {} },
+      window: { addEventListener: (name, listener) => events.set(name, listener), removeEventListener() {} },
+      addEventListener() {}, requestAnimationFrame: callback => { frame = callback; return 1; }, cancelAnimationFrame() {},
+    });
+    assert.equal(document.documentElement.dataset.backgroundInput, maxTouchPoints ? 'none' : 'pointer');
+    assert.equal(events.has('pointermove'), !maxTouchPoints);
+    assert.equal(events.has('touchmove'), false);
+    assert.equal(events.has('scroll'), false);
+    assert.equal(canvas.width, 780, 'retain the original DPR cap of 2');
+    assert.equal(canvas.height, 1688);
+    frame(1000); frame(1100);
+    assert.equal(uniforms.get('u_time'), .1, 'autonomous animation keeps advancing');
+    assert.deepEqual(uniforms.get('u_mouse'), [.5, .5]);
+    if (events.has('pointermove')) {
+      events.get('pointermove')({ pointerType: 'touch', clientX: 0, clientY: 0 });
+      frame(1200); assert.deepEqual(uniforms.get('u_mouse'), [.5, .5]);
+      events.get('pointermove')({ pointerType: 'mouse', clientX: 390, clientY: 844 });
+      frame(1300); assert.deepEqual(uniforms.get('u_mouse'), [1, 0]);
+    }
+    const previousDraws = drawCount;
+    canvas.clientHeight = 500; observer();
+    assert.equal(canvas.height, 1000, 'real viewport changes still update the drawing buffer');
+    assert.ok(drawCount > previousDraws);
+    control.onclick();
+    assert.equal(document.documentElement.dataset.background, 'paused');
+    control.onclick();
+    assert.equal(document.documentElement.dataset.background, 'running');
+  }
+});
