@@ -4,7 +4,11 @@
     "status": "available",
     "version": "4.3.0",
     "summary": "Automate rebirths, strength training and boss farming, hatch and evolve pets, and track your farming progress.",
-    "features": ["Auto Farm", "Auto Boss", "Fast Farming"],
+    "features": [
+      "Auto Farm",
+      "Auto Boss",
+      "Fast Farming"
+    ],
     "source": "Scripts/MuscleLegends/"
   },
   {
@@ -12,15 +16,36 @@
     "status": "outdated",
     "version": "1.0.0",
     "summary": "Archived features include Auto Click, Auto Rebirth, Auto Hatch, golden and rainbow pet crafting, and pet enchanting. Outdated; these features may no longer work.",
-    "features": ["Auto Hatch", "Auto Craft", "Auto Enchant"],
-    "source": "Scripts/tapsim.luau"
+    "features": [
+      "Auto Hatch",
+      "Auto Craft",
+      "Auto Enchant"
+    ],
+    "source": "Scripts/TapSimulator/Main.luau"
   },
   {
     "gameId": 107778070777162,
     "status": "available",
     "version": "1.0.0",
     "summary": "Automate egg collection, placement and hatching, manage and fuse pets, filter sales, buy upgrades, and find eggs with ESP.",
-    "features": ["Auto Collect/Place/Hatch", "Pet Management", "ESP"],
-    "source": "Scripts/stealaneg.luau"
+    "features": [
+      "Auto Collect/Place/Hatch",
+      "Pet Management",
+      "ESP"
+    ],
+    "source": "Scripts/StealAnEgg/Main.luau"
+  },
+  {
+    "gameId": 72858262610964,
+    "status": "available",
+    "version": "1.0.0",
+    "summary": "Automate tapping, rebirths and egg hatching, filter pet deletion, craft and enchant pets, and manage rewards, potions and minigames.",
+    "features": [
+      "Auto Hatch",
+      "Auto Craft",
+      "Auto Enchant"
+    ],
+    "source": "Scripts/TapSimulatorReborn/Main.luau",
+    "displayName": "Tap Simulator Reborn"
   }
 ]

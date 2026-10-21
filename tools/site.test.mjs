@@ -54,7 +54,11 @@ for (const url of ['https://silencedevs.github.io/Website/', 'https://silencedev
         assert.match(status.textContent, /Background unavailable/);
         assert.match(home, /scripts\/background.js" defer/);
       }
-      assert.equal(games.length, 3);
+      assert.equal(games.length, 4);
+      const reborn = await readFile(resolve(out, "games/72858262610964/index.html"), "utf8");
+      assert.match(reborn, /Tap Simulator Reborn/);
+      for (const feature of ["Auto Tap", "Auto Enchant", "Anti Lag", "Total Coins"]) assert.ok(reborn.includes(feature), `Missing Reborn feature: ${feature}`);
+      assert.match(reborn, /Scripts\/TapSimulatorReborn\/Main\.luau/);
       assert.match(home, /id="hero-title"[^>]*>Silence<\/h1>/);
       assert.ok(home.indexOf('id="loader"') < home.indexOf('id="games"'));
       assert.ok(home.indexOf('id="questions"') < home.indexOf('id="about"'));
@@ -103,6 +107,8 @@ for (const url of ['https://silencedevs.github.io/Website/', 'https://silencedev
       const sitemap = await readFile(resolve(out, 'sitemap.xml'), 'utf8');
       assert.equal((sitemap.match(/<loc>/g) || []).length, games.length + projects.length + 2 + (projects.length ? 1 : 0));
       assert.ok(sitemap.includes(site.url));
+      assert.ok(sitemap.includes(new URL("games/72858262610964/", site.url).href));
+      assert.ok((await readFile(resolve(out, "robots.txt"), "utf8")).includes(`Sitemap: ${site.url}sitemap.xml`));
       assert.ok((await stat(resolve(out, 'index.html'))).isFile());
       assert.ok((await stat(resolve(out, '.nojekyll'))).isFile());
       if (new URL(url).hostname.endsWith('.github.io')) await assert.rejects(stat(resolve(out, 'CNAME')));
